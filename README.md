@@ -1,6 +1,8 @@
 # EJSupreme
 
+[EJSupreme.description]
+[EJSupreme.technologies]
 
-![ScreenShot](EJSupreme/Project3_Flowchart1.jpg)
+![ScreenShot](/Project3_Flowchart1.jpg)
 
 LIVE SITE ON HEROKU
