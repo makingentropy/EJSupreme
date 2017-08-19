@@ -20,7 +20,6 @@ var eventsinfo=[
   interestTags:[],
   attendeeEmails: [name2@name.com, name@name.com],
   vettingQuestions:{[]}
-  {
 
 ];
 
