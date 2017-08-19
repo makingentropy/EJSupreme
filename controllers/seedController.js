@@ -15,7 +15,7 @@ var eventsinfo=[
   country: "USA",
   state: "California",
   city: "los Angeles",
-  zip: "90042",
+  zip: 90042,
   address: "Nova",
   interestTags:[],
   attendeeEmails: [name2@name.com, name@name.com],
