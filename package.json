@@ -1,0 +1,25 @@
+{
+  "name": "ejsupreme",
+  "version": "1.0.0",
+  "description": "Day 1: --- ### Flowchart of MVP design ![ScreenShot](/Project3_Flowchart1.jpg)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makingentropy/EJSupreme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makingentropy/EJSupreme/issues"
+  },
+  "homepage": "https://github.com/makingentropy/EJSupreme#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7"
+  }
+}
