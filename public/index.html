@@ -8,7 +8,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
-  <body>
-    {{2+2}}
+  <body>{{2+2}}
+    <nav ng-controller="NavController as navctrl">
+      <div ng-click="navctrl.collapseLogin=false; navctrl.collapseRegister=true; " ng-if="navctrl.collapseLogin">Login</div>
+      <div ng-if="!navctrl.collapseLogin">
+        <form  action="/sessions/login" method="POST">
+           <input type="text" name="username" value="">
+           <input type="password" name="password" value="">
+           <button ng-click="navctrl.collapseLogin=true;">Login</button>
+        </form>
+      </div>
+      <div ng-click="navctrl.collapseRegister=false; navctrl.collapseLogin=true;" ng-if="navctrl.collapseLogin">Register</div>
+      <div ng-if="!navctrl.collapseRegister"/>
+        <form action="/sessions/register" method="POST">
+           <input type="text" name="username" value="">
+           <input type="password" name="password" value="">
+           <button ng-click="navctrl.collapseRegister=true;">Register</button>
+        </form>
+      </div>
+    <nav>
   </body>
 </html>
