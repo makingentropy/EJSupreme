@@ -4,7 +4,7 @@ var router = express.Router();
 var eventsinfo = require('../models/events.js');
 var usersinfo = require('../models/users.js');
 
-var eventsinfo=[
+var neweventsinfo=[
   {title: "August Chevy Party",
   ownerEmail: "name2@name.com",
   date:[08,21,2017],
@@ -18,11 +18,12 @@ var eventsinfo=[
   zip: 90042,
   address: "Nova",
   interestTags:[],
-  attendeeEmails: ["name2@name.com", "name@name.com"],
+
+  attendeeEmails: ["name2@name.com, name@name.com"],
   vettingQuestions:[]
 }];
 
-var userinfo=[
+var newusersinfo=[
   {email: "name@name.com",
   name: "Papi",
   age: 37,
@@ -50,29 +51,31 @@ var userinfo=[
   eventsOrganizing: []}];
 
 router.get('/', ( req, res) => {
-	eventsinfo.create(eventsinfo, function(err) {
+
+	eventsinfo.create(neweventsinfo, function(err) {
 		if (err) {
 			console.log(err);
-			res.send('Error seeding database');
+			res.send('Error seeding events database');
 		} else {
-			console.log('SEED EXECUTED');
+			   console.log('SEED EXECUTED: +=neweventsinfo');
 			// res.redirect('/someRoute');
 		}
 	});
-  usersinfo.create(usersinfo, function(err) {
+  usersinfo.create(newusersinfo, function(err) {
+
 		if (err) {
 			console.log(err);
-			res.send('Error seeding database');
+			res.send('Error seeding user database');
 		} else {
-			console.log('SEED EXECUTED');
+			console.log('SEED EXECUTED: +=newusersinfo');
 			// res.redirect('/someRoute');
 		}
 	});
 });
 
 router.get( '/dropdatabase' , (req , res ) => {
- plannercrud.collection.drop(); //put users collection name in middle
- plannercrud.collection.drop(); //put events collection name in middle
+ eventsinfo.collection.drop(); //put users collection name in middle
+ usersinfo.collection.drop(); //put events collection name in middle
  res.send ('You did it! You dropped the database!');
 });
 
