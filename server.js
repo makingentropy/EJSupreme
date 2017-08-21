@@ -12,6 +12,12 @@ app.use(bodyParser.json()); //creates a property on request called req.body
 
 app.use(express.static('public'));
 
+app.use(session({
+    secret: "this is a random string secret", //a random string do not copy this value or your stuff will get hacked
+    resave: false,
+    saveUninitialized: false
+}));
+
 //Controllers
 const seedController= require('./controllers/seedController.js');
 app.use('/seed', seedController);
