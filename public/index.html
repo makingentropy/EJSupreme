@@ -8,24 +8,62 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
-  <body>{{2+2}}
-    <nav ng-controller="NavController as navctrl">
-      <div ng-click="navctrl.collapseLogin=false; navctrl.collapseRegister=true; " ng-if="navctrl.collapseLogin">Login</div>
-      <div ng-if="!navctrl.collapseLogin">
-        <form  action="/sessions/login" method="POST">
-           <input type="text" name="username" value="">
-           <input type="password" name="password" value="">
-           <button ng-click="navctrl.collapseLogin=true;">Login</button>
+  <body ng-controller="mainController as mctrl">
+
+    <ul>
+      <li ng-repeat="event in mctrl.events track by $index">
+        {{event.title}} made by {{event.ownerEmail}}
+        <button ng-click="mctrl.deleteEvent(event)">Delete</button>
+        <button ng-click="mctrl.indexEditForm = $index">Edit</button>
+          <br/>
+        {{event.description}}
+          <br/>
+        {{event.date | date:'fullDate'}} {{event.time | date: "mediumTime"}}
+          <br/>
+        {{event.address}}
+          <br/>
+        {{event.zip}} {{event.city}}, {{event.state}}, {{event.country}}
+          <br/>
+        Required Cost: {{event.requiredCost | currency}}
+        <form ng-if="$index === mctrl.indexEditForm" ng-submit="mctrl.editEvent(event)">
+          <input type="text" ng-model="mctrl.updatedTitle" placeholder="new title">
+          <input type="submit" value="submit">
         </form>
-      </div>
-      <div ng-click="navctrl.collapseRegister=false; navctrl.collapseLogin=true;" ng-if="navctrl.collapseLogin">Register</div>
-      <div ng-if="!navctrl.collapseRegister"/>
-        <form action="/sessions/register" method="POST">
-           <input type="text" name="username" value="">
-           <input type="password" name="password" value="">
-           <button ng-click="navctrl.collapseRegister=true;">Register</button>
-        </form>
-      </div>
-    <nav>
+      </li>
+    </ul>
+
+    <form ng-submit="mctrl.postEvent()">
+      Create new Event
+        <br/>
+      <input type="text" ng-model="mctrl.title" placeholder="Title" />
+        <br/>
+      <input type="text" ng-model="mctrl.ownerEmail" placeholder="Email"/>
+        <br/>
+      <input type="text" ng-model="mctrl.date" placeholder="Date"/>
+        <br/>
+      <input type="text" ng-model="mctrl.time" placeholder="Time"/>
+        <br/>
+      <input type="text" ng-model="mctrl.imagelink" placeholder="Image URL"/>
+        <br/>
+      <input type="text" ng-model="mctrl.description" placeholder="Description"/>
+        <br/>
+      <input type="text" ng-model="mctrl.requiredCost" placeholder="Required Cost"/>
+        <br/>
+      <input type="text" ng-model="mctrl.country" placeholder="Country"/>
+        <br/>
+      <input type="text" ng-model="mctrl.state" placeholder="State"/>
+        <br/>
+      <input type="text" ng-model="mctrl.city" placeholder="City"/>
+        <br/>
+      <input type="text" ng-model="mctrl.zip" placeholder="Zip"/>
+        <br/>
+      <input type="text" ng-model="mctrl.address" placeholder="Address"/>
+        <br/>
+      <input type="text" ng-model="mctrl.interestTags" placeholder="Interest Tags"/>
+        <br/>
+      <input type="submit" value="Create New Event">
+    </form>
+  </body>
+
   </body>
 </html>
