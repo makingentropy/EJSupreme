@@ -12,7 +12,7 @@ const usersSchema = mongoose.Schema({
   imagelink: String,
   interests: Array,
   eventsAttending: Array,
-  eventsOrganing: Array
+  eventsOrganizing: Array
 });
 
 const Users = mongoose.model('User', usersSchema);

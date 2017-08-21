@@ -6,8 +6,10 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
 
+
 //Middleware
 app.use(bodyParser.json()); //creates a property on request called req.body
+
 app.use(express.static('public'));
 
 //Controllers
