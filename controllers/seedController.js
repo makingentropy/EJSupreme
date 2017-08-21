@@ -18,10 +18,9 @@ var eventsinfo=[
   zip: 90042,
   address: "Nova",
   interestTags:[],
-  attendeeEmails: [name2@name.com, name@name.com],
-  vettingQuestions:{[]}
-
-];
+  attendeeEmails: ["name2@name.com", "name@name.com"],
+  vettingQuestions:[]
+}];
 
 var userinfo=[
   {email: "name@name.com",
@@ -35,7 +34,7 @@ var userinfo=[
   imagelink: "https://dxsdcl7y7vn9x.cloudfront.net/464152/7FA82EBF-D8D7-433B-A175-CB6F55D10AEA_1.jpg",
   interests: ["Adult Swim","dragons"],
   eventsAttending: [],
-  eventsOrganing: []},
+  eventsOrganizing: []},
 
   {email: "name2@name.com",
   name: "Mami",
@@ -48,12 +47,19 @@ var userinfo=[
   imagelink: "http://images1.americanlisted.com/nlarge/1972-chevrolet-nova-americanlisted_66331191.jpg",
   interests: ["Adult Swim","astronomy"],
   eventsAttending: [],
-  eventsOrganing: []},
-
-];
+  eventsOrganizing: []}];
 
 router.get('/', ( req, res) => {
-	Carsinfo.create(eventssinfo, function(err) {
+	eventsinfo.create(eventsinfo, function(err) {
+		if (err) {
+			console.log(err);
+			res.send('Error seeding database');
+		} else {
+			console.log('SEED EXECUTED');
+			// res.redirect('/someRoute');
+		}
+	});
+  usersinfo.create(usersinfo, function(err) {
 		if (err) {
 			console.log(err);
 			res.send('Error seeding database');

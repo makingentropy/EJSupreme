@@ -15,7 +15,7 @@ const eventsSchema = mongoose.Schema({
   address: String,
   interestTags:Array,
   attendeeEmails: Array,
-  vettingQuestions:Object
+  vettingQuestions:Array
 });
 
 const Events = mongoose.model('Event', eventsSchema);

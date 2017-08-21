@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+
+
+const seedController= require('./controllers/seedController.js');
+app.use('/seed', seedController);
 app.use(express.static('public'));
 
 
