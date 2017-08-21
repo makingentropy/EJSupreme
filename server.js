@@ -25,7 +25,7 @@ const eventsController = require('./controllers/events.js');
 // const usersController = require('./controllers/users.js');
 app.use('/events', eventsController);
 // app.use('/users', usersController);
-const sessionsController = require('./controllers/session.js');
+const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
 //Mongoose connection
