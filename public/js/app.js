@@ -7,12 +7,36 @@ app.controller('mainController', ['$http', function($http){
   this.getEvents = function(){
     $http({
       method: 'GET',
-      url: '/'
+      url: '/events'
     }).then(function(response){
-      controller.info = response.data;
+      console.log(response, ' -- > this is the response');
+      controller.events = response.data;
     }, function(error){
       console.log('error');
     });
   },
-  this.
+  this.postEvent = function(){
+    $http({
+      method: 'POST',
+      url: '/events',
+      data: {
+        title: this.title
+      }
+    }).then(function(response){
+      console.log(response);
+        controller.getEvents();
+    }, function(error){
+      console.log('error');
+    });
+  }
+  // },
+  // this.editEvent = function(event){
+  //   $http({
+  //     method: 'PUT',
+  //     url: '/events/' + event._id,
+  //     data: {
+  //
+  //     }
+  //   })
+  // }
 }]);
