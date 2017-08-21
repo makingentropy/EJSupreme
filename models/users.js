@@ -15,6 +15,6 @@ const usersSchema = mongoose.Schema({
   eventsOrganing: Array
 });
 
-const Events = mongoose.model('User', usersSchema);
+const Users = mongoose.model('User', usersSchema);
 
 module.exports = Users;

@@ -11,6 +11,8 @@ app.use(bodyParser.json()); //creates a property on request called req.body
 app.use(express.static('public'));
 
 //Controllers
+const seedController= require('./controllers/seedController.js');
+app.use('/seed', seedController);
 const eventsController = require('./controllers/events.js');
 // const usersController = require('./controllers/users.js');
 app.use('/events', eventsController);
