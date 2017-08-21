@@ -39,4 +39,6 @@ app.controller('mainController', ['$http', function($http){
   //     }
   //   })
   // }
+  this.showingRegister=false;
+  this.showingLogin=false;
 }]);

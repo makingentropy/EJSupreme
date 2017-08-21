@@ -1,15 +1,20 @@
-<div>
-  <form  action="/sessions/login" method="POST">
-     <input type="text" name="username" value="">
-     <input type="password" name="password" value="">
-     <button>Login</button>
-  </form>
+<div id="login">
+  <div ng-if="!mctrl.showingLogin" ng-click="mctrl.showingLogin=true; mctrl.showingRegister=false;">LOGIN</div>
+  <div ng-if="mctrl.showingLogin">
+    <form  action="/sessions/login" method="POST">
+       <input type="text" name="username" value="">
+       <input type="password" name="password" value="">
+       <button ng-click="mctrl.showingRegister=false; mctrl.showingLogin=false;">Login</button>
+    </form>
+  </div>
 </div>
-
-<div>
-<form action="/sessions/register" method="POST">
-   <input type="text" name="username" value="">
-   <input type="password" name="password" value="">
-   <button>Register</button>
-</form>
+<div id="register">
+  <div ng-if="!mctrl.showingRegister" ng-click="mctrl.showingRegister=true; mctrl.showingLogin=false;">REGISTER</div>
+  <div ng-if="mctrl.showingRegister">
+    <form action="/sessions/register" method="POST">
+       <input type="text" name="username" value="">
+       <input type="password" name="password" value="">
+       <button ng-click="mctrl.showingRegister=false; mctrl.showingLogin=false;">Register</button>
+    </form>
+  </div>
 </div>
