@@ -1,5 +1,6 @@
 const app = angular.module("MyApp",[]);
 
+
 //--------------------------->
 //this is the event controller
 //--------------------------->
@@ -23,6 +24,7 @@ app.controller('mainController', ['$http', function($http){
       method: 'POST',
       url: '/events',
       data: {
+
         title: this.title,
         ownerEmail: this.ownerEmail,
         date: this.date,
@@ -89,16 +91,19 @@ app.controller('mainController', ['$http', function($http){
       method: 'DELETE',
       url: '/events/' + event._id,
       data: {
+
         title: this.title
       }
     }).then(function(response){
       console.log(response);
       controller.getEvents();
+
     }, function(error){
       console.log('error');
     });
   }
   this.getEvents();
+
 }]);
 
 //--------------------------->

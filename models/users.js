@@ -12,9 +12,9 @@ const usersSchema = mongoose.Schema({
   imagelink: String,
   interests: Array,
   eventsAttending: Array,
-  eventsOrganing: Array
+  eventsOrganizing: Array
 });
 
-const Events = mongoose.model('User', usersSchema);
+const Users = mongoose.model('User', usersSchema);
 
 module.exports = Users;
