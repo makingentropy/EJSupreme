@@ -1,0 +1,29 @@
+<div ng-if="mctrl.loggedIn">Log Out</div> <!--//make this do stuff -->
+<div ng-if="!mctrl.loggedIn">
+  <div id="login">
+    <!-- <div ng-if="!mctrl.showingLogin" ng-click="mctrl.showingLogin=true; mctrl.showingRegister=false;">LOGIN</div>
+    <div ng-if="mctrl.showingLogin"> -->
+
+      <form action="/sessions/login" method="POST">
+         <input type="text" name="email" value="">
+         <input type="password" name="password" value="">
+         <input type="submit" value="login">
+      </form>
+
+    <!-- </div> -->
+  </div>
+  <div id="register">
+    <!-- <div ng-if="!mctrl.showingRegister" ng-click="mctrl.showingRegister=true; mctrl.showingLogin=false;">REGISTER</div>
+    <div ng-if="mctrl.showingRegister"> -->
+
+      <form action="/sessions/register" method="POST">
+         <input type="text" name="email" value="">
+         <input type="password" name="password" value="">
+         <input type="submit" value="register">
+      </form>
+      <!-- Adding angular to the form data, specifically in the case of:
+      <button ng-click="mctrl.showingRegister=false; mctrl.showingLogin=false;">
+      detaches the data from the form somehow.  Therefore, I have to revert my code to something more basic. -->
+    <!-- </div> -->
+  </div>
+</div>
