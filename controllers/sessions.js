@@ -16,13 +16,13 @@ const bcrypt = require('bcryptjs');
 
 router.post('/login', (req, res, next) => {
 
-  User.findOne({username: req.body.username}, (err, user) => {
+  User.findOne({email: req.body.email}, (err, user) => {
 
       if(user){
                      //now compare hash with the password from the form
             if(bcrypt.compareSync(req.body.password, user.password)){
                 req.session.message  = '';
-                req.session.username = req.body.username;
+                req.session.email = req.body.email;
                 req.session.logged   = true;
                 console.log(req.session, req.body)
 
@@ -54,7 +54,7 @@ router.post('/register', (req, res, next) => {
 
   // lets create a object for our db entry;
   const userDbEntry = {};
-  userDbEntry.username = req.body.username;
+  userDbEntry.email = req.body.email;
   userDbEntry.password = passwordHash
 
   // lets put the password into the database
@@ -62,9 +62,9 @@ router.post('/register', (req, res, next) => {
     console.log(user)
 
     // lets set up the session in here we can use the same code we created in the login
-    req.session.username = user.username;
+    req.session.email = user.email;
     req.session.logged   = true;
-    res.redirect('/authors')
+    res.redirect('/')
   });
 
 })
