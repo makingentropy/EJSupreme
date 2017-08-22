@@ -102,7 +102,23 @@ app.controller('mainController', ['$http', function($http){
       console.log('error');
     });
   }
+
+  // },
+  // this.editEvent = function(event){
+  //   $http({
+  //     method: 'PUT',
+  //     url: '/events/' + event._id,
+  //     data: {
+  //
+  //     }
+  //   })
+  // }
+  this.showingRegister=false;
+  this.showingLogin=false;
+  this.loggedIn=false;
+
   this.getEvents();
+
 
 }]);
 
