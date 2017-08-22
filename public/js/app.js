@@ -1,12 +1,16 @@
 const app = angular.module("MyApp",[]);
-
-
 //--------------------------->
 //this is the event controller
 //--------------------------->
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
+  this.hideDiv = true;
+  this.showDiv = false;
+
+  this.handleClick = function(){
+    this.hideDiv = !this.hideDiv;
+  },
 
   this.getEvents = function(){
     $http({
@@ -19,12 +23,12 @@ app.controller('mainController', ['$http', function($http){
       console.log('error');
     });
   },
+
   this.postEvent = function(){
     $http({
       method: 'POST',
       url: '/events',
       data: {
-
         title: this.title,
         ownerEmail: this.ownerEmail,
         date: this.date,
@@ -80,19 +84,18 @@ app.controller('mainController', ['$http', function($http){
     }).then(function(response){
       console.log(response);
       controller.getEvents();
-      controller.title = "";
-      controller.ownerEmail = "";
-      controller.date = "";
-      controller.time = "";
-      controller.imagelink = "";
-      controller.description = "";
-      controller.requiredCost = "";
-      controller.country = "";
-      controller.state = "";
-      controller.city = "";
-      controller.zip = "";
-      controller.address = "";
-      controller.interestTags = "";
+      controller.updatedTitle = "";
+      controller.updatedDate = "";
+      controller.updatedTime = "";
+      controller.updatedImagelink = "";
+      controller.updatedDescription = "";
+      controller.updatedRequiredcost = "";
+      controller.updatedCountry = "";
+      controller.updatedState = "";
+      controller.updatedCity = "";
+      controller.updatedZip = "";
+      controller.updatedAddress = "";
+      controller.updatedInterestTags = "";
     }, function(error){
       console.log('error');
     });
@@ -101,22 +104,19 @@ app.controller('mainController', ['$http', function($http){
     $http({
       method: 'DELETE',
       url: '/events/' + event._id,
-      data: {
-
-        title: this.title
-      }
     }).then(function(response){
       console.log(response);
       controller.getEvents();
-
     }, function(error){
       console.log('error');
     });
   }
   this.getEvents();
-
 }]);
-
 //--------------------------->
 //this is the user controller
+//--------------------------->
+
+//--------------------------->
+//this is the sessions controller
 //--------------------------->

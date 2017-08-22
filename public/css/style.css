@@ -7,3 +7,7 @@ html {
 ul {
   list-style: none;
 }
+
+form > input {
+  text-align: center;
+}

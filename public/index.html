@@ -8,13 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
+
   <body ng-controller="mainController as mctrl">
     <div class="nav" ng-include="'includes/loginreg.html'"></div> {{2+2}}
+
     <ul>
       <li ng-repeat="event in mctrl.events track by $index">
-        {{event.title}} made by {{event.ownerEmail}}
-        <button ng-click="mctrl.deleteEvent(event)">Delete</button>
-        <button ng-click="mctrl.indexEditForm = $index">Edit</button>
+        <div ng-click="mctrl.handleClick()">{{event.title}} made by {{event.ownerEmail}}</div>
+        <div ng-hide="mctrl.hideDiv">
+          <button ng-click="mctrl.deleteEvent(event)">Delete</button>
+          <button ng-click="mctrl.indexEditForm = $index">Edit</button>
+        </div>
           <br/>
         {{event.description}}
           <br/>
@@ -26,7 +30,30 @@
           <br/>
         Required Cost: {{event.requiredCost | currency}}
         <form ng-if="$index === mctrl.indexEditForm" ng-submit="mctrl.editEvent(event)">
-          <input type="text" ng-model="mctrl.updatedTitle" placeholder="new title">
+          <input type="text" ng-model="mctrl.updatedTitle" placeholder="New Title"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedDate" placeholder="New Date"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedTime" placeholder="New Time"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedImageLink" placeholder="New Image Link"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedDescription" placeholder="New Description"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedRequiredcost" placeholder="New Required Cost"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedCountry" placeholder="New Country"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedState" placeholder="New State"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedCity" placeholder="New City"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedZip" placeholder="New Zip"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedAddress" placeholder="New Address"/>
+            <br/>
+          <input type="text" ng-model="mctrl.updatedInterestTags" placeholder="New Interest Tags"/>
+            <br/>
           <input type="submit" value="submit">
         </form>
       </li>
