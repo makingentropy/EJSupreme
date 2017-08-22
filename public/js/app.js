@@ -1,5 +1,8 @@
 const app=angular.module("MyApp",[]);
 
+//--------------------------->
+//this is the event controller
+//--------------------------->
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
@@ -97,3 +100,7 @@ app.controller('mainController', ['$http', function($http){
   }
   this.getEvents();
 }]);
+
+//--------------------------->
+//this is the user controller
+//--------------------------->
