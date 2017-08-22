@@ -9,7 +9,7 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="mainController as mctrl">
-
+    <div class="nav" ng-include="'includes/loginreg.html'"></div> {{2+2}}
     <ul>
       <li ng-repeat="event in mctrl.events track by $index">
         {{event.title}} made by {{event.ownerEmail}}
