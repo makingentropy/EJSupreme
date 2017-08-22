@@ -4,10 +4,10 @@
     <!-- <div ng-if="!mctrl.showingLogin" ng-click="mctrl.showingLogin=true; mctrl.showingRegister=false;">LOGIN</div>
     <div ng-if="mctrl.showingLogin"> -->
 
-      <form  action="/sessions/login" method="POST">
+      <form action="/sessions/login" method="POST">
          <input type="text" name="email" value="">
          <input type="password" name="password" value="">
-         <button>Login</button> <!--ng-click="mctrl.showingRegister=false; mctrl.showingLogin=false;"-->
+         <input type="submit" value="login">
       </form>
 
     <!-- </div> -->
@@ -19,7 +19,7 @@
       <form action="/sessions/register" method="POST">
          <input type="text" name="email" value="">
          <input type="password" name="password" value="">
-         <button>Register</button>
+         <input type="submit" value="register">
       </form>
       <!-- Adding angular to the form data, specifically in the case of:
       <button ng-click="mctrl.showingRegister=false; mctrl.showingLogin=false;">
