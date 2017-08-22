@@ -64,7 +64,18 @@ app.controller('mainController', ['$http', function($http){
       method: 'PUT',
       url: '/events/' + event._id,
       data: {
-        title: this.updatedTitle
+        title: this.updatedTitle,
+        date: this.updatedDate,
+        time: this.updatedTime,
+        imagelink: this.updatedImagelink,
+        description: this.updatedDecription,
+        requiredCost: this.updatedRequiredcost,
+        country: this.updatedCountry,
+        state: this.updatedState,
+        city: this.updatedCity,
+        zip: this.updatedZip,
+        address: this.updatedAddress,
+        interestTags: this.updatedInterestTags
       }
     }).then(function(response){
       console.log(response);
