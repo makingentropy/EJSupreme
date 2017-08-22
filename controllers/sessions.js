@@ -4,7 +4,6 @@ const User    = require('../models/user');
 const bcrypt = require('bcryptjs');
 
 router.get('/login', (req, res, next) =>{
-
   res.render('users/login.ejs', {message: req.session.message || ''})
 })
 

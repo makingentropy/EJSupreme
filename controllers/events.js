@@ -10,21 +10,21 @@ router.get('/', (req, res)=>{
 
 router.post('/', (req, res)=>{
   console.log(req.body)
-    Events.create(req.body, (err, createdEvent)=>{
-        res.json(createdEvent);
-    });
+  Events.create(req.body, (err, createdEvent)=>{
+    res.json(createdEvent);
+  });
 });
 
 router.delete('/:id', (req, res)=>{
-    Events.findByIdAndRemove(req.params.id, (err, deletedEvent)=>{
-        res.json(deletedEvent);
-    });
+  Events.findByIdAndRemove(req.params.id, (err, deletedEvent)=>{
+    res.json(deletedEvent);
+  });
 });
 
 router.put('/:id', (req, res)=>{
-    Events.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
-        res.json(updatedEvent);
-    });
+  Events.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
+    res.json(updatedEvent);
+  });
 });
 
 module.exports = router;
