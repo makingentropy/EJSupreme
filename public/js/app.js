@@ -1,4 +1,4 @@
-const app=angular.module("MyApp",[]);
+const app = angular.module("MyApp",[]);
 
 //--------------------------->
 //this is the event controller

@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const moment = require('moment');
 
 app.use(bodyParser.json()); //creates a property on request called req.body
 app.use(express.static('public'));
