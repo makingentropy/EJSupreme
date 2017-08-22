@@ -3,16 +3,16 @@ const router  = express.Router();
 const User    = require('../models/users.js');
 const bcrypt = require('bcrypt');
 
-router.get('/login', (req, res, next) =>{
+// router.get('/login', (req, res, next) =>{
+//
+//   res.render('users/login.ejs', {message: req.session.message || ''})
+// })
 
-  res.render('users/login.ejs', {message: req.session.message || ''})
-})
 
 
-
-router.get('/register', (req, res, next) => {
-  res.render('users/register.ejs', {})
-})
+// router.get('/register', (req, res, next) => {
+//   res.render('users/register.ejs', {})
+// })
 
 router.post('/login', (req, res, next) => {
 
