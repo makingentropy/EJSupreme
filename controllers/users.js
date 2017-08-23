@@ -20,10 +20,16 @@ router.post('/register', (req, res, next)=>{
   userDbEntry.email = req.body.email;
   userDbEntry.password = passwordHash;
   Users.create(userDbEntry, (err, user) => {
-    console.log(user);
-    req.session.email = user.email;
-    req.session.logged = true;
-    res.json(req.session.logged);
+      // console.log(user);
+      Users.findOne({'email': user.email}, function (err, foundEmail){
+        console.log(foundEmail);
+      req.session.email = user.email;
+      req.session.id = foundEmail._id;
+      req.session.logged = true;
+      console.log('this is req.session.id', req.session.id);
+      console.log('this is req.session@@', req.session)
+      res.json(req.session);
+    });
   });
 });
 
@@ -58,7 +64,16 @@ router.delete('/:id', (req, res)=>{
 //ADMIN MODERATOR: Update an account
 //USER: Update your own account
 router.put('/:id', (req, res)=>{
+  console.log(req.params.id);
   Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedUser)=>{
+    // req.session.email = user.email;
+    // req.session.name = user.name;
+    // req.session.age = user.age;
+    // req.session.phone = user.phone;
+    // req.session.country = user.country;
+    // req.session.zip = user.zip;
+    // req.session.imagelink = user.imagelink;
+    // req.session.interests = user.interests;
     res.json(updatedUser);
   });
 });

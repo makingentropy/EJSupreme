@@ -71,7 +71,7 @@ app.controller('mainController', ['$http', function($http){
   this.editEvent = function(event){
     $http({
       method: 'PUT',
-      url: '/events/' + event,
+      url: '/events/' + event._id,
       //previously: url: '/events/' + event._id,
       data: {
         title: this.updatedTitle,
@@ -127,6 +127,7 @@ app.controller('mainController', ['$http', function($http){
     const controller = this;
     this.loggedIn = false;
     this.initialProfileUpdate = false;
+    this.user = "";
 
     this.getUsers = function(){
       $http({
@@ -153,6 +154,8 @@ app.controller('mainController', ['$http', function($http){
         controller.regPassword = "";
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
+        controller.user = response.data.email;
+        console.log('this is the res.data.cookie...', response.data.email);
         //redirect to edit your profile
       }, function(error){
         console.log('error');
@@ -160,9 +163,10 @@ app.controller('mainController', ['$http', function($http){
     },
 
     this.editUser = function(user){
+      console.log('edit user', user);
       $http({
         method: 'PUT',
-        url: '/users/' + user,
+        url: '/users/' + user._id,
         data: {
           email: this.updatedEmail,
           password: this.updatedPassword,

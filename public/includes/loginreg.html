@@ -8,7 +8,7 @@
 
   <div ng-if="uctrl.initialProfileUpdate">
     We see that you've created a new account! Add some details and shit!
-    <form ng-submit="uctrl.editUser()">
+    <form ng-submit="uctrl.editUser(uctrl.user)">
       <input type="text" ng-model="uctrl.updatedEmail" placeholder="Email"/>
         <br/>
       <input type="text" ng-model="uctrl.updatedPassword" placeholder="Password"/>
