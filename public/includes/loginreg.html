@@ -13,7 +13,9 @@
 
       <form ng-submit="uctrl.loginUser()">
          <input type="text" placeholder="email">
+          <br/>
          <input type="password" placeholder="password">
+          <br/>
          <input type="submit" value="login">
       </form>
 
@@ -25,7 +27,9 @@
 
       <form ng-submit="uctrl.postUser()">
          <input ng-model="uctrl.email" type="text" placeholder="email">
+          <br/>
          <input ng-model="uctrl.password" type="password" placeholder="password">
+          <br/>
          <input type="submit" value="register">
       </form>
       <!-- Adding angular to the form data, specifically in the case of:
@@ -39,14 +43,23 @@
   We see that you've created a new account! Add some details and shit!
   <form ng-submit="uctrl.editUser()">
     <input type="text" ng-model="uctrl.updatedEmail" placeholder="Email"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedPassword" placeholder="Password"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedName" placeholder="Name"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedAge" placeholder="Age"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedPhone" placeholder="Phone"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedCountry" placeholder="Country"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedCity" placeholder="City"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedZip" placeholder="Zip"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedImageLink" placeholder="Image URL"/>
+      <br/>
     <input type="text" ng-model="uctrl.updatedInterests" placeholder="Interests"/>
       <br/>
     <input type="submit" value="submit"/>
