@@ -19,6 +19,8 @@ const seedController= require('./controllers/seedController.js');
 app.use('/seed', seedController);
 const eventsController = require('./controllers/events.js');
 app.use('/events', eventsController);
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
 
 //Mongoose connection
 mongoose.connect('mongodb://localhost:27017/plannercrud');

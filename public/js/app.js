@@ -116,6 +116,80 @@ app.controller('mainController', ['$http', function($http){
 //--------------------------->
 //this is the user controller
 //--------------------------->
+  app.controller('userController', ['$http', function($http){
+    const controller = this;
+
+    this.getUsers = function(){
+      $http({
+        method: 'GET',
+        url: '/users'
+      }).then(function(response){
+        controller.getUsers();
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.postUser = function(){
+      console.log(this.email, this.password);
+      $http({
+        method: 'POST',
+        url: '/users',
+        data: {
+          email: controller.email,
+          password: controller.password
+        }
+      }).then(function(response){
+        controller.email = "";
+        controller.password = "";
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.editUser = function(user){
+      $http({
+        method: 'PUT',
+        url: '/users/' + user._id,
+        data: {
+          email: this.updatedEmail,
+          password: this.updatedPassword,
+          name: this.updatedName,
+          age: this.updatedAge,
+          phone: this.updatedPhone,
+          country: this.updatedCountry,
+          city: this.updatedCity,
+          zip: this.updatedZip,
+          imagelink: this.updatedImageLink,
+          interests: this.updatedInterests,
+        }
+      }).then(function(response){
+        controller.updatedEmail = "";
+        controller.updatedPassword = "";
+        controller.updatedName = "";
+        controller.updatedAge = "";
+        controller.updatedPhone = "";
+        controller.updatedCountry = "";
+        controller.updatedCity = "";
+        controller.updatedZip = "";
+        controller.updatedImageLink = "";
+        controller.updatedInterests = "";
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.deleteUser = function(user){
+      $http({
+        method: 'DELETE',
+        url: '/users/' + user._id,
+      }).then(function(response){
+        console.log('delete user success');
+      }, function(error){
+        console.log('delete user error');
+      });
+    }
+  }]);
 
 //--------------------------->
 //this is the sessions controller
