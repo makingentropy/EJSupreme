@@ -3,12 +3,14 @@ const router = express.Router();
 const Users = require('../models/users.js');
 const bcrypt = require('bcryptjs');
 
+//ADMIN MODERATOR: See all registered users
 router.get('/', (req, res)=>{
   Users.find({}, (err, foundUsers)=>{
     res.json(foundUsers);
   });
 });
 
+//USER: Register an account
 router.post('/register', (req, res, next)=>{
 //check if user already exists
   const password = req.body.password;
@@ -25,6 +27,8 @@ router.post('/register', (req, res, next)=>{
   });
 });
 
+//ADMIN MODERATOR: Log into a pre-existing account
+//USER: Log into a pre-existing account
 router.post('/login', (req, res)=>{
   Users.findOne({email: req.body.email}, (err, user)=>{
     if(user){
@@ -43,23 +47,37 @@ router.post('/login', (req, res)=>{
   });
 });
 
+//ADMIN MODERATOR: Delete an account
+//USER: Delete your own account
 router.delete('/:id', (req, res)=>{
   Users.findByIdAndRemove(req.params.id, (err, deletedUser)=>{
     res.json(deletedUser);
   });
 });
 
+//ADMIN MODERATOR: Update an account
+//USER: Update your own account
 router.put('/:id', (req, res)=>{
   Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedUser)=>{
     res.json(updatedUser);
   });
 });
 
+//ADMIN MODERATOR: Log out of your account
+//USER: Log out of your account
 router.get('/logout', (req, res)=>{
   req.session.destroy(function(err){
     req.session = false;
     console.log('Logged out');
     res.json(req.session)
+  });
+});
+
+//ADMIN MODERATOR: View a profile
+//USER: View a profile
+router.get('/:id', (req, res)=>{
+  Users.find({_id: req.params.id}, function(err, foundUser){
+    res.json(foundUser)
   });
 });
 

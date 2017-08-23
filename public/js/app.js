@@ -119,6 +119,7 @@ app.controller('mainController', ['$http', function($http){
   app.controller('userController', ['$http', function($http){
     const controller = this;
     this.loggedIn = false;
+    this.initialProfileUpdate = false;
 
     this.getUsers = function(){
       $http({
@@ -143,6 +144,7 @@ app.controller('mainController', ['$http', function($http){
         controller.email = "";
         controller.password = "";
         controller.loggedIn = true;
+        controller.initialProfileUpdate = true;
         //redirect to edit your profile
       }, function(error){
         console.log('error');
@@ -152,7 +154,7 @@ app.controller('mainController', ['$http', function($http){
     this.editUser = function(user){
       $http({
         method: 'PUT',
-        url: '/users/' + user._id,
+        url: '/users/' + user,
         data: {
           email: this.updatedEmail,
           password: this.updatedPassword,
@@ -176,6 +178,7 @@ app.controller('mainController', ['$http', function($http){
         controller.updatedZip = "";
         controller.updatedImageLink = "";
         controller.updatedInterests = "";
+        controller.initialProfileUpdate = false;
       }, function(error){
         console.log('error');
       });
