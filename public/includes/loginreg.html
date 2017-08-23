@@ -34,4 +34,22 @@
     <!-- </div> -->
   </div>
 </div>
+
+<div ng-if="uctrl.loggedIn">
+  We see that you've created a new account! Add some details and shit!
+  <form ng-submit="uctrl.editUser()">
+    <input type="text" ng-model="uctrl.updatedEmail" placeholder="Email"/>
+    <input type="text" ng-model="uctrl.updatedPassword" placeholder="Password"/>
+    <input type="text" ng-model="uctrl.updatedName" placeholder="Name"/>
+    <input type="text" ng-model="uctrl.updatedAge" placeholder="Age"/>
+    <input type="text" ng-model="uctrl.updatedPhone" placeholder="Phone"/>
+    <input type="text" ng-model="uctrl.updatedCountry" placeholder="Country"/>
+    <input type="text" ng-model="uctrl.updatedCity" placeholder="City"/>
+    <input type="text" ng-model="uctrl.updatedZip" placeholder="Zip"/>
+    <input type="text" ng-model="uctrl.updatedImageLink" placeholder="Image URL"/>
+    <input type="text" ng-model="uctrl.updatedInterests" placeholder="Interests"/>
+  </form>
+</div>
+</div>
+
 </div>
