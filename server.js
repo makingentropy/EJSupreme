@@ -18,8 +18,6 @@ app.use(session({
 }));
 
 //Controllers
-const sessionController = require('./controllers/sessions.js');
-app.use('/sessions', sessionController);
 const seedController= require('./controllers/seedController.js');
 app.use('/seed', seedController);
 const eventsController = require('./controllers/events.js');
