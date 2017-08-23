@@ -2,6 +2,7 @@ const app = angular.module("MyApp",[]);
 //--------------------------->
 //this is the event controller
 //--------------------------->
+console.log('hi');
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
@@ -154,7 +155,7 @@ app.controller('mainController', ['$http', function($http){
         controller.regPassword = "";
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
-        controller.user = response.data.email;
+        controller.user = response.data;
         console.log('this is the res.data.cookie...', response.data.email);
         //redirect to edit your profile
       }, function(error){
@@ -163,7 +164,8 @@ app.controller('mainController', ['$http', function($http){
     },
 
     this.editUser = function(user){
-      console.log('edit user', user);
+      // console.log('THIS IS THE USER._ID', user._id);
+      console.log(user);
       $http({
         method: 'PUT',
         url: '/users/' + user._id,

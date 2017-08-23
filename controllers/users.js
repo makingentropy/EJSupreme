@@ -20,18 +20,25 @@ router.post('/register', (req, res, next)=>{
   userDbEntry.email = req.body.email;
   userDbEntry.password = passwordHash;
   Users.create(userDbEntry, (err, user) => {
-      // console.log(user);
-      Users.findOne({'email': user.email}, function (err, foundEmail){
-        console.log(foundEmail);
-      req.session.email = user.email;
-      req.session.id = foundEmail._id;
-      req.session.logged = true;
-      console.log('this is req.session.id', req.session.id);
-      console.log('this is req.session@@', req.session)
-      res.json(req.session);
-    });
+    req.session.james = user._id;
+    if(err){
+      res.send(err);
+    } else {
+      res.json(user);
+    }
   });
 });
+
+//USER: Update information on initialProfileUpdate & Edits
+router.put('/users/:id', function(err, user){
+  Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, user)=>{
+    if(err){
+      res.send(err);
+    } else {
+      res.json(user);
+    }
+  });
+})
 
 //ADMIN MODERATOR: Log into a pre-existing account
 //USER: Log into a pre-existing account
