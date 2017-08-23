@@ -49,7 +49,6 @@ router.delete('/:id', (req, res)=>{
   });
 });
 
-
 router.put('/:id', (req, res)=>{
   Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedUser)=>{
     res.json(updatedUser);

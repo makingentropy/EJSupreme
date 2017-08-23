@@ -142,6 +142,8 @@ app.controller('mainController', ['$http', function($http){
       }).then(function(response){
         controller.email = "";
         controller.password = "";
+        controller.loggedIn = true;
+        //redirect to edit your profile
       }, function(error){
         console.log('error');
       });

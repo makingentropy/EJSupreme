@@ -1,9 +1,11 @@
 <div ng-controller="userController as uctrl">
+
 <div ng-if="uctrl.loggedIn">
   <button ng-click="uctrl.logoutUser()">
     Log Out
   </button>
 </div> <!--//make this do stuff -->
+
 <div ng-if="!uctrl.loggedIn">
   <div id="login">
     <!-- <div ng-if="!mctrl.showingLogin" ng-click="mctrl.showingLogin=true; mctrl.showingRegister=false;">LOGIN</div>
