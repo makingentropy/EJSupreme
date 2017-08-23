@@ -18,6 +18,10 @@ app.controller('mainController', ['$http', function($http){
       url: '/events'
     }).then(function(response){
       console.log(response, ' -- > this is the response');
+      //if users.interesttags === events.interestTags
+      //show the shit
+      //else
+      //don't show the shit
       controller.events = response.data;
     }, function(error){
       console.log('error');
@@ -67,7 +71,8 @@ app.controller('mainController', ['$http', function($http){
   this.editEvent = function(event){
     $http({
       method: 'PUT',
-      url: '/events/' + event._id,
+      url: '/events/' + event,
+      //previously: url: '/events/' + event._id,
       data: {
         title: this.updatedTitle,
         date: this.updatedDate,
@@ -234,7 +239,6 @@ app.controller('mainController', ['$http', function($http){
         console.log('error');
       });
     }
-
 }]);
 
 //--------------------------->

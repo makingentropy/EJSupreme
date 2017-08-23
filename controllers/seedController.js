@@ -73,7 +73,7 @@ router.get('/', ( req, res) => {
 	});
 });
 
-router.get( '/dropdatabase' , (req , res ) => {
+router.get('/dropdatabase', (req , res ) => {
  eventsinfo.collection.drop(); //put users collection name in middle
  usersinfo.collection.drop(); //put events collection name in middle
  res.send ('You did it! You dropped the database!');
