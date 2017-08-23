@@ -134,10 +134,10 @@ app.controller('mainController', ['$http', function($http){
       console.log(this.email, this.password);
       $http({
         method: 'POST',
-        url: '/users',
+        url: '/users/register',
         data: {
-          email: controller.email,
-          password: controller.password
+          email: this.email,
+          password: this.password
         }
       }).then(function(response){
         controller.email = "";

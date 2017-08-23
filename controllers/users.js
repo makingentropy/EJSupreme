@@ -9,11 +9,12 @@ router.get('/', (req, res)=>{
   });
 });
 
-router.post('/', (req, res)=>{
+router.post('/register', (req, res, next)=>{
 //check if user already exists
   const password = req.body.password;
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   const userDbEntry = {};
+
   userDbEntry.email = req.body.email;
   userDbEntry.password = passwordHash;
 
@@ -21,7 +22,7 @@ router.post('/', (req, res)=>{
     console.log(user);
     req.session.email = user.email;
     req.session.logged = true;
-    res.redirect('/');
+    res.json(req.session.logged);
   });
 });
 

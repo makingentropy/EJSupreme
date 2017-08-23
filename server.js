@@ -11,6 +11,11 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json()); //creates a property on request called req.body
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
+app.use(session({
+    secret: "this is a random string secret", //a random string do not copy this value or your stuff will get hacked
+    resave: false,
+    saveUninitialized: false
+}));
 
 //Controllers
 const sessionController = require('./controllers/sessions.js');
