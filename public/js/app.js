@@ -118,6 +118,7 @@ app.controller('mainController', ['$http', function($http){
 //--------------------------->
   app.controller('userController', ['$http', function($http){
     const controller = this;
+    this.loggedIn = false;
 
     this.getUsers = function(){
       $http({
@@ -131,7 +132,6 @@ app.controller('mainController', ['$http', function($http){
     },
 
     this.postUser = function(){
-      console.log(this.email, this.password);
       $http({
         method: 'POST',
         url: '/users/register',
@@ -188,8 +188,39 @@ app.controller('mainController', ['$http', function($http){
       }, function(error){
         console.log('delete user error');
       });
+    },
+
+    this.loginUser = function(email, password){
+      $http({
+        method: 'POST',
+        url: '/users/login',
+        data: {
+          email: this.email,
+          password: this.password
+        }
+      }).then(function(respose){
+        console.log('logged in');
+        controller.email = "";
+        controller.password = "";
+        controller.loggedIn = true;
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.logoutUser = function(){
+      $http({
+        method: 'GET',
+        url: '/users/logout'
+      }).then(function(response){
+        console.log('logged out/app.js');
+        controller.loggedIn = false;
+      }, function(error){
+        console.log('error');
+      });
     }
-  }]);
+
+}]);
 
 //--------------------------->
 //this is the sessions controller

@@ -1,13 +1,17 @@
 <div ng-controller="userController as uctrl">
-<div ng-if="mctrl.loggedIn">Log Out</div> <!--//make this do stuff -->
-<div ng-if="!mctrl.loggedIn">
+<div ng-if="uctrl.loggedIn">
+  <button ng-click="uctrl.logoutUser()">
+    Log Out
+  </button>
+</div> <!--//make this do stuff -->
+<div ng-if="!uctrl.loggedIn">
   <div id="login">
     <!-- <div ng-if="!mctrl.showingLogin" ng-click="mctrl.showingLogin=true; mctrl.showingRegister=false;">LOGIN</div>
     <div ng-if="mctrl.showingLogin"> -->
 
-      <form action="/sessions/login" method="POST">
-         <input type="text" name="email" value="">
-         <input type="password" name="password" value="">
+      <form ng-submit="uctrl.loginUser()">
+         <input type="text" placeholder="email">
+         <input type="password" placeholder="password">
          <input type="submit" value="login">
       </form>
 
@@ -18,8 +22,8 @@
     <div ng-if="mctrl.showingRegister"> -->
 
       <form ng-submit="uctrl.postUser()">
-         <input ng-model="uctrl.email" type="text" name="email" value="">
-         <input ng-model="uctrl.password" type="password" name="password" value="">
+         <input ng-model="uctrl.email" type="text" placeholder="email">
+         <input ng-model="uctrl.password" type="password" placeholder="password">
          <input type="submit" value="register">
       </form>
       <!-- Adding angular to the form data, specifically in the case of:
