@@ -46,6 +46,7 @@ app.controller('mainController', ['$http', function($http){
     }).then(function(response){
       console.log(response);
       controller.getEvents();
+      //empties form upon successful new event post
       controller.title = "";
       controller.ownerEmail = "";
       controller.date = "";
@@ -84,6 +85,7 @@ app.controller('mainController', ['$http', function($http){
     }).then(function(response){
       console.log(response);
       controller.getEvents();
+      //empties form upon successful event edit
       controller.updatedTitle = "";
       controller.updatedDate = "";
       controller.updatedTime = "";
@@ -137,10 +139,11 @@ app.controller('mainController', ['$http', function($http){
         method: 'POST',
         url: '/users/register',
         data: {
-          email: this.email,
-          password: this.password
+          email: this.regEmail,
+          password: this.regPassword
         }
       }).then(function(response){
+        //empties form upon successful registry
         controller.email = "";
         controller.password = "";
         controller.loggedIn = true;
@@ -168,6 +171,7 @@ app.controller('mainController', ['$http', function($http){
           interests: this.updatedInterests,
         }
       }).then(function(response){
+        //empties form upon successful edit
         controller.updatedEmail = "";
         controller.updatedPassword = "";
         controller.updatedName = "";
@@ -203,11 +207,17 @@ app.controller('mainController', ['$http', function($http){
           email: this.email,
           password: this.password
         }
-      }).then(function(respose){
-        console.log('logged in');
-        controller.email = "";
-        controller.password = "";
-        controller.loggedIn = true;
+      }).then(function(response){
+        console.log(response);
+          if(response.data === true){
+            //empties form upon successful login
+            controller.email = "";
+            controller.password = "";
+            controller.loggedIn = response.data;
+            console.log('logged in');
+          } else {
+            console.log("couldn't log in");
+          }
       }, function(error){
         console.log('error');
       });
