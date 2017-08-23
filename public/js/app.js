@@ -144,8 +144,8 @@ app.controller('mainController', ['$http', function($http){
         }
       }).then(function(response){
         //empties form upon successful registry
-        controller.email = "";
-        controller.password = "";
+        controller.regEmail = "";
+        controller.regPassword = "";
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
         //redirect to edit your profile
@@ -238,5 +238,5 @@ app.controller('mainController', ['$http', function($http){
 }]);
 
 //--------------------------->
-//this is the sessions controller
+//this is the users/
 //--------------------------->

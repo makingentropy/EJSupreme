@@ -12,9 +12,9 @@ app.use(bodyParser.json()); //creates a property on request called req.body
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
 app.use(session({
-    secret: "this is a random string secret", //a random string do not copy this value or your stuff will get hacked
-    resave: false,
-    saveUninitialized: false
+  secret: "this is a random string secret", //a random string do not copy this value or your stuff will get hacked
+  resave: false,
+  saveUninitialized: false
 }));
 
 //Controllers
@@ -28,10 +28,10 @@ app.use('/users', usersController);
 //Mongoose connection
 mongoose.connect('mongodb://localhost:27017/plannercrud');
 mongoose.connection.once('open', ()=>{
-    console.log('connected to mongo');
+  console.log('connected to mongo');
 });
 
 //listening
 app.listen(port, ()=>{
-    console.log('listening');
+  console.log('listening');
 });
