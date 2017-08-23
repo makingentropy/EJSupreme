@@ -1,12 +1,16 @@
 const app = angular.module("MyApp",[]);
-
-
 //--------------------------->
 //this is the event controller
 //--------------------------->
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
+  this.hideDiv = true;
+  this.showDiv = false;
+
+  this.handleClick = function(){
+    this.hideDiv = !this.hideDiv;
+  },
 
   this.getEvents = function(){
     $http({
@@ -19,12 +23,12 @@ app.controller('mainController', ['$http', function($http){
       console.log('error');
     });
   },
+
   this.postEvent = function(){
     $http({
       method: 'POST',
       url: '/events',
       data: {
-
         title: this.title,
         ownerEmail: this.ownerEmail,
         date: this.date,
@@ -64,24 +68,34 @@ app.controller('mainController', ['$http', function($http){
       method: 'PUT',
       url: '/events/' + event._id,
       data: {
-        title: this.updatedTitle
+        title: this.updatedTitle,
+        date: this.updatedDate,
+        time: this.updatedTime,
+        imagelink: this.updatedImagelink,
+        description: this.updatedDecription,
+        requiredCost: this.updatedRequiredcost,
+        country: this.updatedCountry,
+        state: this.updatedState,
+        city: this.updatedCity,
+        zip: this.updatedZip,
+        address: this.updatedAddress,
+        interestTags: this.updatedInterestTags
       }
     }).then(function(response){
       console.log(response);
       controller.getEvents();
-      controller.title = "";
-      controller.ownerEmail = "";
-      controller.date = "";
-      controller.time = "";
-      controller.imagelink = "";
-      controller.description = "";
-      controller.requiredCost = "";
-      controller.country = "";
-      controller.state = "";
-      controller.city = "";
-      controller.zip = "";
-      controller.address = "";
-      controller.interestTags = "";
+      controller.updatedTitle = "";
+      controller.updatedDate = "";
+      controller.updatedTime = "";
+      controller.updatedImagelink = "";
+      controller.updatedDescription = "";
+      controller.updatedRequiredcost = "";
+      controller.updatedCountry = "";
+      controller.updatedState = "";
+      controller.updatedCity = "";
+      controller.updatedZip = "";
+      controller.updatedAddress = "";
+      controller.updatedInterestTags = "";
     }, function(error){
       console.log('error');
     });
@@ -90,22 +104,126 @@ app.controller('mainController', ['$http', function($http){
     $http({
       method: 'DELETE',
       url: '/events/' + event._id,
-      data: {
-
-        title: this.title
-      }
     }).then(function(response){
       console.log(response);
       controller.getEvents();
-
     }, function(error){
       console.log('error');
     });
   }
   this.getEvents();
+}]);
+//--------------------------->
+//this is the user controller
+//--------------------------->
+  app.controller('userController', ['$http', function($http){
+    const controller = this;
+    this.loggedIn = false;
+
+    this.getUsers = function(){
+      $http({
+        method: 'GET',
+        url: '/users'
+      }).then(function(response){
+        controller.getUsers();
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.postUser = function(){
+      $http({
+        method: 'POST',
+        url: '/users/register',
+        data: {
+          email: this.email,
+          password: this.password
+        }
+      }).then(function(response){
+        controller.email = "";
+        controller.password = "";
+        controller.loggedIn = true;
+        //redirect to edit your profile
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.editUser = function(user){
+      $http({
+        method: 'PUT',
+        url: '/users/' + user._id,
+        data: {
+          email: this.updatedEmail,
+          password: this.updatedPassword,
+          name: this.updatedName,
+          age: this.updatedAge,
+          phone: this.updatedPhone,
+          country: this.updatedCountry,
+          city: this.updatedCity,
+          zip: this.updatedZip,
+          imagelink: this.updatedImageLink,
+          interests: this.updatedInterests,
+        }
+      }).then(function(response){
+        controller.updatedEmail = "";
+        controller.updatedPassword = "";
+        controller.updatedName = "";
+        controller.updatedAge = "";
+        controller.updatedPhone = "";
+        controller.updatedCountry = "";
+        controller.updatedCity = "";
+        controller.updatedZip = "";
+        controller.updatedImageLink = "";
+        controller.updatedInterests = "";
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.deleteUser = function(user){
+      $http({
+        method: 'DELETE',
+        url: '/users/' + user._id,
+      }).then(function(response){
+        console.log('delete user success');
+      }, function(error){
+        console.log('delete user error');
+      });
+    },
+
+    this.loginUser = function(email, password){
+      $http({
+        method: 'POST',
+        url: '/users/login',
+        data: {
+          email: this.email,
+          password: this.password
+        }
+      }).then(function(respose){
+        console.log('logged in');
+        controller.email = "";
+        controller.password = "";
+        controller.loggedIn = true;
+      }, function(error){
+        console.log('error');
+      });
+    },
+
+    this.logoutUser = function(){
+      $http({
+        method: 'GET',
+        url: '/users/logout'
+      }).then(function(response){
+        console.log('logged out/app.js');
+        controller.loggedIn = false;
+      }, function(error){
+        console.log('error');
+      });
+    }
 
 }]);
 
 //--------------------------->
-//this is the user controller
+//this is the sessions controller
 //--------------------------->
