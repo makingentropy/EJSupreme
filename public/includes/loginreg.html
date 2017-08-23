@@ -33,37 +33,30 @@
     </form>
   </div>
 
-</div>
+</div> <!---This closes uctrl.isLogged--->
 
 <div ng-if="!uctrl.loggedIn"> <!---If user is not logged in--->
 
-    <div id="login">
-
-        <form ng-submit="uctrl.loginUser(email, password)">
-           <input type="text" ng-model="uctrl.email" placeholder="email">
-            <br/>
-           <input type="password" ng-model="uctrl.password" placeholder="password">
-            <br/>
-           <input type="submit" value="login">
-        </form>
-
-
-    </div>
-    <div id="register">
-
-        <form ng-submit="uctrl.postUser()">
-           <input ng-model="uctrl.regEmail" type="text" placeholder="email">
-            <br/>
-           <input ng-model="uctrl.regPassword" type="password" placeholder="password">
-            <br/>
-           <input type="submit" value="register">
-        </form>
-
-    </div>
+  <div id="login">
+    <form ng-submit="uctrl.loginUser(email, password)">
+     <input type="text" ng-model="uctrl.email" placeholder="email">
+      <br/>
+     <input type="password" ng-model="uctrl.password" placeholder="password">
+      <br/>
+     <input type="submit" value="login">
+    </form>
   </div>
 
-  <div ng-if="uctrl.loggedIn">
-
+  <div id="register">
+    <form ng-submit="uctrl.postUser()">
+     <input ng-model="uctrl.regEmail" type="text" placeholder="email">
+      <br/>
+     <input ng-model="uctrl.regPassword" type="password" placeholder="password">
+      <br/>
+     <input type="submit" value="register">
+    </form>
   </div>
+
+</div> <!---Closes !uctrl.isLogged--->
 
 </div> <!---Stop uctrl--->
