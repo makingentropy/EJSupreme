@@ -19,13 +19,6 @@ router.get('/', (req, res)=>{
   } //closing for loop
 });
 
-// router.get('/', (req, res)=>{
-//   Events.find({}, (err, foundEvents)=>{
-//     res.json(foundEvents);
-//   });
-// });
-
-
 router.post('/', (req, res)=>{
     // console.log("session,event.js, ln 12: ",req.session);
     Events.create(req.body, (err, createdEvent)=>{
@@ -55,6 +48,12 @@ router.put('/:id', (req, res)=>{
     }else{
       console.log("err: ",err);
     }
+  });
+});
+
+router.get('/:id', (req, res)=>{
+  Events.find({_id: req.params.id}, function(err, foundEvent){
+    res.json(foundEvent);
   });
 });
 
