@@ -7,6 +7,7 @@ app.controller('mainController', ['$http', function($http){
   this.indexEditForm = 1;
   this.hideDiv = true;
   this.showDiv = false;
+  this.Questions={};
 
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;

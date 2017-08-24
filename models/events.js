@@ -19,9 +19,9 @@ const eventsSchema = mongoose.Schema({
   city: String,
   zip: Number,
   address: String,
-  interestTags: Array,
+  interestTags: [String],
   attendeeEmails: Array,
-  vettingQuestions:Array
+  vettingQuestions:[Object]
 });
 
 const Events = mongoose.model('Event', eventsSchema);
