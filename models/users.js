@@ -1,8 +1,16 @@
 const mongoose = require('mongoose');
+const Event = require('./events.js');
 
 const usersSchema = mongoose.Schema({
-  email: String,
-  password: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
   name: String,
   age: Number,
   phone: Number,
@@ -13,7 +21,7 @@ const usersSchema = mongoose.Schema({
   imagelink: String,
   interests: Array,
   eventsAttending: Array,
-  eventsOrganizing: Array
+  eventsOrganizing: Array,
 });
 
 const Users = mongoose.model('User', usersSchema);

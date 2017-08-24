@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Events = require('../models/events.js');
 
-
 router.get('/', (req, res)=>{
   let allMatchingEvents=[];
   console.log("B4 if, req.session.logged: ",req.session.logged);
@@ -45,13 +44,11 @@ router.delete('/:id', (req, res)=>{
 });
 
 router.put('/:id', (req, res)=>{
-  // console.log("req.session,line 25, events.js: ",req.session);
-
   //Model.findById(id, [projection], [options], [callback])
   Events.findById(req.params.id,  (err, updatedEvent)=>{
     // console.log("updatedEvent,line 29, events.js: ",updatedEvent);
-    console.log("updatedEvent.ownerEmail : ", updatedEvent.ownerEmail);
-    console.log("req.session.email : ",req.session.email);
+    console.log(updatedEvent.ownerEmail);
+    console.log(req.session.email);
     if(updatedEvent.ownerEmail === req.session.email){
       //NOTE: in gold release, two undefineds being compared here would
       //allow access so this needs to be changed in that release
