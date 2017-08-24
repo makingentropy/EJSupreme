@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Events = require('../models/events.js');
 
-
 router.get('/', (req, res)=>{
   let allMatchingEvents=[];
   console.log("B4 if, req.session.logged: ",req.session.logged);

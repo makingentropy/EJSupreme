@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 
 const eventsSchema = mongoose.Schema({
-  title: String,
-  ownerEmail: String,
+  title: {
+    type: String,
+    required: true
+  },
+  ownerEmail: {
+    type: String,
+    required: true
+  },
   date:Array, // [mm,dd,yyyy]
   time:Array, //[hh,mm]
   imagelink: String,
@@ -13,7 +19,7 @@ const eventsSchema = mongoose.Schema({
   city: String,
   zip: Number,
   address: String,
-  interestTags:Array,
+  interestTags: Array,
   attendeeEmails: Array,
   vettingQuestions:Array
 });

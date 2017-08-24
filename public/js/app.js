@@ -17,17 +17,18 @@ app.controller('mainController', ['$http', function($http){
       method: 'GET',
       url: '/events'
     }).then(function(response){
-      // console.log(response, ' -- > this is the response');
+      console.log(response, ' -- > this is the response');
       //if users.interesttags === events.interestTags
       //show the shit
       //else
       //don't show the shit
-      controller.events = response.data;
-      // controller.getEvents();
+      // controller.events = response.data;
+      controller.getEvents();
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
       console.log('error');
+      console.log('why');
     });
   },
 
