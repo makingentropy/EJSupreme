@@ -30,7 +30,8 @@ router.put('/:id', (req, res)=>{
     console.log("updatedEvent.ownerEmail : ", updatedEvent.ownerEmail);
     console.log("req.session.email : ",req.session.email);
     if(updatedEvent.ownerEmail === req.session.email){
-      // console.log("updatedEvent.ownerEmail === req.session.email: true");
+      //NOTE: in gold release, two undefineds being compared here would
+      //allow access so this needs to be changed in that release
       updatedEvent.interestTags.push(req.body.interestTags);
       Events.findByIdAndUpdate(req.params.id, updatedEvent, (err, updated)=>{
         res.json(updatedEvent);
