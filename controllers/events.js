@@ -22,7 +22,9 @@ router.delete('/:id', (req, res)=>{
 });
 
 router.put('/:id', (req, res)=>{
-  Events.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
+  console.log(req.body);
+  Events.findById(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
+    updatedEvent.interestTags.push(req.body.interestTags);
     res.json(updatedEvent);
   });
 });

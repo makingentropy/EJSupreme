@@ -24,6 +24,7 @@ app.controller('mainController', ['$http', function($http){
       //else
       //don't show the shit
       controller.events = response.data;
+      console.log('this is controller.events', controller.events);
     }, function(error){
       console.log('error');
     });
@@ -170,8 +171,8 @@ app.controller('mainController', ['$http', function($http){
         method: 'PUT',
         url: '/users/' + user._id,
         data: {
-          email: this.updatedEmail,
-          password: this.updatedPassword,
+          // email: this.updatedEmail,
+          // password: this.updatedPassword,
           name: this.updatedName,
           age: this.updatedAge,
           phone: this.updatedPhone,
@@ -183,8 +184,8 @@ app.controller('mainController', ['$http', function($http){
         }
       }).then(function(response){
         //empties form upon successful edit
-        controller.updatedEmail = "";
-        controller.updatedPassword = "";
+        // controller.updatedEmail = "";
+        // controller.updatedPassword = "";
         controller.updatedName = "";
         controller.updatedAge = "";
         controller.updatedPhone = "";
@@ -220,12 +221,13 @@ app.controller('mainController', ['$http', function($http){
         }
       }).then(function(response){
         console.log(response);
+
           if(response.data === true){
             //empties form upon successful login
             controller.email = "";
             controller.password = "";
             controller.loggedIn = response.data;
-            console.log('logged in');
+            console.log('this is response.data', response.data);
           } else {
             console.log("couldn't log in");
           }

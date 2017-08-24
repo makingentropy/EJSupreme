@@ -29,17 +29,8 @@ router.post('/register', (req, res, next)=>{
   });
 });
 
-//USER: Update information on initialProfileUpdate & Edits
-router.put('/users/:id', function(err, user){
-  Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, user)=>{
-    if(err){
-      res.send(err);
-    } else {
-      res.json(user);
-    }
-  });
-})
-
+//Test/test
+//newTest/newTest
 //ADMIN MODERATOR: Log into a pre-existing account
 //USER: Log into a pre-existing account
 router.post('/login', (req, res)=>{
@@ -50,11 +41,11 @@ router.post('/login', (req, res)=>{
         req.session.logged = true;
         res.json(req.session.logged);
       } else {
-        req.session.message = 'Username or password are incorrect';
+        req.session.message = 'Username or password are incorrect1';
         res.json(req.session.message);
       }
     } else {
-      req.session.message = 'Username or password are incorrect';
+      req.session.message = 'Username or password are incorrect2';
       res.json(req.session.message);
     };
   });
@@ -68,20 +59,14 @@ router.delete('/:id', (req, res)=>{
   });
 });
 
-//ADMIN MODERATOR: Update an account
-//USER: Update your own account
+//USER: Update information on initialProfileUpdate & Edits
 router.put('/:id', (req, res)=>{
-  console.log(req.params.id);
-  Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedUser)=>{
-    // req.session.email = user.email;
-    // req.session.name = user.name;
-    // req.session.age = user.age;
-    // req.session.phone = user.phone;
-    // req.session.country = user.country;
-    // req.session.zip = user.zip;
-    // req.session.imagelink = user.imagelink;
-    // req.session.interests = user.interests;
-    res.json(updatedUser);
+  Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, user)=>{
+    if(err){
+      res.send(err);
+    } else {
+      res.json(user);
+    }
   });
 });
 
@@ -91,7 +76,7 @@ router.get('/logout', (req, res)=>{
   req.session.destroy(function(err){
     req.session = false;
     console.log('Logged out');
-    res.json(req.session)
+    res.json(req.session);
   });
 });
 

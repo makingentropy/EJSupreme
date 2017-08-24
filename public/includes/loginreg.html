@@ -9,10 +9,10 @@
   <div ng-if="uctrl.initialProfileUpdate">
     We see that you've created a new account! Add some details and shit!
     <form ng-submit="uctrl.editUser(uctrl.user)">
-      <input type="text" ng-model="uctrl.updatedEmail" placeholder="Email"/>
+      <!-- <input type="text" ng-model="uctrl.updatedEmail" placeholder="Email"/>
         <br/>
       <input type="text" ng-model="uctrl.updatedPassword" placeholder="Password"/>
-        <br/>
+        <br/> -->
       <input type="text" ng-model="uctrl.updatedName" placeholder="Name"/>
         <br/>
       <input type="text" ng-model="uctrl.updatedAge" placeholder="Age"/>
@@ -38,7 +38,7 @@
 <div ng-if="!uctrl.loggedIn"> <!---If user is not logged in--->
 
   <div id="login">
-    <form ng-submit="uctrl.loginUser(email, password)">
+    <form ng-submit="uctrl.loginUser()">
      <input type="text" ng-model="uctrl.email" placeholder="email">
       <br/>
      <input type="password" ng-model="uctrl.password" placeholder="password">

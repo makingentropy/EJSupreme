@@ -17,7 +17,7 @@ var neweventsinfo=[
   city: "los Angeles",
   zip: 90042,
   address: "Nova",
-  interestTags:[],
+  interestTags:["cars"],
 
   attendeeEmails: ["name2@name.com, name@name.com"],
   vettingQuestions:[]
