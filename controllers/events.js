@@ -25,7 +25,9 @@ router.put('/:id', (req, res)=>{
   console.log(req.body);
   Events.findById(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
     updatedEvent.interestTags.push(req.body.interestTags);
-    res.json(updatedEvent);
+    Events.findByIdAndUpdate(req.params.id, updatedEvent, (err, updated)=>{
+      res.json(updatedEvent);
+    });
   });
 });
 
