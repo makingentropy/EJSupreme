@@ -2,7 +2,6 @@ const app = angular.module("MyApp",[]);
 //--------------------------->
 //this is the event controller
 //--------------------------->
-console.log('hi');
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
@@ -18,13 +17,13 @@ app.controller('mainController', ['$http', function($http){
       method: 'GET',
       url: '/events'
     }).then(function(response){
-      console.log(response, ' -- > this is the response');
+      // console.log(response, ' -- > this is the response');
       //if users.interesttags === events.interestTags
       //show the shit
       //else
       //don't show the shit
       controller.events = response.data;
-      console.log('this is controller.events', controller.events);
+      // console.log('this is controller.events', controller.events);
     }, function(error){
       console.log('error');
     });
@@ -50,7 +49,7 @@ app.controller('mainController', ['$http', function($http){
         interestTags: this.interestTags,
       }
     }).then(function(response){
-      console.log(response);
+      // console.log(response);
       controller.getEvents();
       //empties form upon successful new event post
       controller.title = "";
@@ -90,7 +89,7 @@ app.controller('mainController', ['$http', function($http){
         interestTags: this.updatedInterestTags
       }
     }).then(function(response){
-      console.log(response);
+      // console.log(response);
       controller.getEvents();
       //empties form upon successful event edit
       controller.updatedTitle = "";
@@ -114,7 +113,7 @@ app.controller('mainController', ['$http', function($http){
       method: 'DELETE',
       url: '/events/' + event._id,
     }).then(function(response){
-      console.log(response);
+      // console.log(response);
       controller.getEvents();
     }, function(error){
       console.log('error');
@@ -158,7 +157,7 @@ app.controller('mainController', ['$http', function($http){
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
         controller.user = response.data;
-        console.log('this is the res.data.cookie...', response.data.email);
+        // console.log('this is the res.data.cookie...', response.data.email);
         //redirect to edit your profile
       }, function(error){
         console.log('error');
@@ -166,7 +165,7 @@ app.controller('mainController', ['$http', function($http){
     },
 
     this.editUser = function(user){
-      console.log(user);
+      // console.log(user);
       $http({
         method: 'PUT',
         url: '/users/' + user._id,
@@ -227,7 +226,7 @@ app.controller('mainController', ['$http', function($http){
             controller.email = "";
             controller.password = "";
             controller.loggedIn = response.data;
-            console.log('this is response.data', response.data);
+            // console.log('this is response.data', response.data);
           } else {
             console.log("couldn't log in");
           }
@@ -241,7 +240,7 @@ app.controller('mainController', ['$http', function($http){
         method: 'GET',
         url: '/users/logout'
       }).then(function(response){
-        console.log('logged out/app.js');
+        // console.log('logged out/app.js');
         controller.loggedIn = false;
       }, function(error){
         console.log('error');

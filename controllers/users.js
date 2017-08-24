@@ -21,6 +21,7 @@ router.post('/register', (req, res, next)=>{
   userDbEntry.password = passwordHash;
   Users.create(userDbEntry, (err, user) => {
     req.session.james = user._id;
+    req.session.email = userDbEntry.email;
     if(err){
       res.send(err);
     } else {
