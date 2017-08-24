@@ -35,7 +35,8 @@ router.post('/login', (req, res)=>{
   Users.findOne({email: req.body.email}, (err, user)=>{
     if(user){
       if(bcrypt.compareSync(req.body.password, user.password)){
-        req.session.email = req.body.email;
+        // req.session.email = req.body.email;
+        req.session.email = user.email;
         req.session.logged = true;
         res.json(req.session.logged);
       } else {
