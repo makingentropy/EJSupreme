@@ -29,8 +29,6 @@ router.post('/register', (req, res, next)=>{
   });
 });
 
-//Test/test
-//newTest/newTest
 //ADMIN MODERATOR: Log into a pre-existing account
 //USER: Log into a pre-existing account
 router.post('/login', (req, res)=>{

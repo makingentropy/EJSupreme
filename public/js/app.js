@@ -131,6 +131,7 @@ app.controller('mainController', ['$http', function($http){
     this.initialProfileUpdate = false;
     this.user = "";
 
+
     this.getUsers = function(){
       $http({
         method: 'GET',
@@ -165,7 +166,6 @@ app.controller('mainController', ['$http', function($http){
     },
 
     this.editUser = function(user){
-      // console.log('THIS IS THE USER._ID', user._id);
       console.log(user);
       $http({
         method: 'PUT',

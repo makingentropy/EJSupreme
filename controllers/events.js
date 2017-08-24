@@ -9,10 +9,10 @@ router.get('/', (req, res)=>{
 });
 
 router.post('/', (req, res)=>{
-  console.log(req.body);
-  Events.create(req.body, (err, createdEvent)=>{
-    res.json(createdEvent);
-  });
+    console.log(req.body);
+    Events.create(req.body, (err, createdEvent)=>{
+      res.json(createdEvent);
+    });
 });
 
 router.delete('/:id', (req, res)=>{
