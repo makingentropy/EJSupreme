@@ -7,6 +7,7 @@ app.controller('mainController', ['$http', function($http){
   this.indexEditForm = 1;
   this.hideDiv = true;
   this.showDiv = false;
+  this.events = "";
 
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
@@ -22,8 +23,8 @@ app.controller('mainController', ['$http', function($http){
       //show the shit
       //else
       //don't show the shit
-      // controller.events = response.data;
-      controller.getEvents();
+      controller.events = response.data;
+      // controller.getEvents();
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
@@ -133,7 +134,6 @@ app.controller('mainController', ['$http', function($http){
     this.initialProfileUpdate = false;
     this.user = "";
 
-
     this.getUsers = function(){
       $http({
         method: 'GET',
@@ -223,7 +223,7 @@ app.controller('mainController', ['$http', function($http){
           password: this.password
         }
       }).then(function(response){
-        console.log(response);
+        console.log('log-in successful', response);
 
           if(response.data === true){
             //empties form upon successful login
