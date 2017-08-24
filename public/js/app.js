@@ -7,7 +7,10 @@ app.controller('mainController', ['$http', function($http){
   this.indexEditForm = 1;
   this.hideDiv = true;
   this.showDiv = false;
+
   this.events = "";
+
+  this.Questions={};
 
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
@@ -24,12 +27,13 @@ app.controller('mainController', ['$http', function($http){
       //else
       //don't show the shit
       controller.events = response.data;
+
       // controller.getEvents();
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
-      console.log('error');
-      console.log(error);
+      //console.log('error');
+      //console.log(error);
     });
   },
 
