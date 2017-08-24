@@ -25,7 +25,7 @@ router.put('/:id', (req, res)=>{
   console.log("req.session,line 25, events.js: ",req.session);
 
   //Model.findById(id, [projection], [options], [callback])
-  db.events.findById(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
+  Events.findById(req.params.id,  (err, updatedEvent)=>{
     console.log("updatedEvent,line 29, events.js: ",updatedEvent);
     if(updatedEvent.ownerEmail === req.session.email){
       console.log("updatedEvent.ownerEmail === req.session.email: true");
