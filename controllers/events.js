@@ -3,32 +3,42 @@ const router = express.Router();
 const Events = require('../models/events.js');
 
 router.get('/', (req, res)=>{
-  let allMatchingEvents=[];
-  console.log("B4 if, req.session.logged: ",req.session.logged);
-  console.log("req.session: ",req.session);
-  if(req.session.logged){
-    console.log("req.session.logged: ",req.session.logged);
-    Events.find({}, (err, foundEvents)=>{ //puills all events from db
-      for(let i=0; i<=foundEvents.length-1; i++){//cycles through events
-        for(let j=0; j<=req.session.interests.length-1; j++){
-          for(let n=0; n<=foundEvents.interestTags.length-1; n++){
-            console.log("foundEvents.length: ",foundEvents.length," "+
-            "req.session.interests[j]: ",req.session.interests[j]," "+
-            "foundEvents.interestTags[n]: ",foundEvents.interestTags[n]);
-            if(req.session.interests[j]==foundEvents.interestTags[n]){
-              allMatchingEvents.push(foundEvents[i]);
-              i++; //break loop, go to next event
-            }
-          }
-        }
-      }
-      // DISPLAY allMatchingEvents here
-      res.json(allMatchingEvents);
-    });
-  }else{
-    console.log("Can't display events/interestTags until logged in");
-  }
+  // Events.find({}, (err, foundEvents)=>{
+  //   console.log("req.session: ",req.session);
+  //   res.json(foundEvents);
+  // });
+  console.log("hey hey hey");
 });
+// router.get('/', (req, res)=>{
+//   let allMatchingEvents=[];
+//   console.log("B4 if, req.session.logged: ",req.session.logged);
+//   console.log("req.session: ",req.session);
+//   if(req.session.logged){
+//     console.log("req.session.logged: ",req.session.logged);
+//     Events.find({}, (err, foundEvents)=>{ //puills all events from db
+// //   //     for(let i=0; i<=foundEvents.length-1; i++){//cycles through events
+// //   //       for(let j=0; j<=req.session.interests.length-1; j++){
+// //   //         for(let n=0; n<=foundEvents.interestTags.length-1; n++){
+// //   //           console.log("foundEvents.length: ",foundEvents.length," "+
+// //   //           "req.session.interests[j]: ",req.session.interests[j]," "+
+// //   //           "foundEvents.interestTags[n]: ",foundEvents.interestTags[n]);
+// //   //           if(req.session.interests[j]==foundEvents.interestTags[n]){
+// //   //             allMatchingEvents.push(foundEvents[i]);
+// //   //             i++; //break loop, go to next event
+// //   //           }
+// //   //         }
+// //   //       }
+// //   //     }
+// //   //     // DISPLAY allMatchingEvents here
+// //   //     res.json(allMatchingEvents);
+// //   //   });
+// //   // }else{
+// //   //   console.log("Can't display events/interestTags until logged in");
+//
+//     res.json(foundEvents);  //testing
+//   }); //testing
+// }
+// });
 
 router.post('/', (req, res)=>{
     // console.log("session,event.js, ln 12: ",req.session);

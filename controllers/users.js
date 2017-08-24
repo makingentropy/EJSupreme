@@ -23,6 +23,7 @@ router.post('/register', (req, res, next)=>{
     req.session.james = user._id;
     req.session.email = user.email;
     req.session.logged = true;
+    req.session.interests = user.intersts;
     if(err){
       res.send(err);
     } else {

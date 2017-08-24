@@ -22,8 +22,8 @@ app.controller('mainController', ['$http', function($http){
       //show the shit
       //else
       //don't show the shit
-      // controller.events = response.data;
-      controller.getEvents();
+      controller.events = response.data;
+
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
