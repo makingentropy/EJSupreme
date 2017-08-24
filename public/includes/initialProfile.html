@@ -1,0 +1,25 @@
+<div ng-if="uctrl.loggedIn && uctrl.initialProfileUpdate">
+
+  <p>Thank you for joining us! Please fill out this form so everyone can learn more about you!</p>
+
+  <form ng-submit="uctrl.editUser(uctrl.user)">
+    <input type="text" ng-model="uctrl.updatedName" placeholder="Name"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedAge" placeholder="Age"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedPhone" placeholder="Phone"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedCountry" placeholder="Country"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedCity" placeholder="City"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedZip" placeholder="Zip"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedImageLink" placeholder="Image URL"/>
+      <br/>
+    <input type="text" ng-model="uctrl.updatedInterests" placeholder="Interests"/>
+      <br/>
+    <input type="submit" value="submit"/>
+  </form>
+
+</div>
