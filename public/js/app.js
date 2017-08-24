@@ -23,6 +23,8 @@ app.controller('mainController', ['$http', function($http){
       //else
       //don't show the shit
       controller.events = response.data;
+      // controller.getEvents();
+      // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
       console.log('error');
@@ -136,7 +138,8 @@ app.controller('mainController', ['$http', function($http){
         method: 'GET',
         url: '/users'
       }).then(function(response){
-        controller.getUsers();
+        // controller.user = response.data
+        controller.users = response.data;
       }, function(error){
         console.log('error');
       });

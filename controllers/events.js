@@ -26,7 +26,7 @@ router.put('/:id', (req, res)=>{
   Events.findById(req.params.id,  (err, updatedEvent)=>{
     // console.log("updatedEvent,line 29, events.js: ",updatedEvent);
     console.log(updatedEvent.ownerEmail);
-    console.log(req.session);
+    console.log(req.session.email);
     if(updatedEvent.ownerEmail === req.session.email){
       //NOTE: in gold release, two undefineds being compared here would
       //allow access so this needs to be changed in that release
