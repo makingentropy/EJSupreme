@@ -7,6 +7,9 @@ app.controller('mainController', ['$http', function($http){
   this.indexEditForm = 1;
   this.hideDiv = true;
   this.showDiv = false;
+
+  this.events = "";
+
   this.Questions={};
 
   //-------------------QUESTIONS:
@@ -31,10 +34,11 @@ app.controller('mainController', ['$http', function($http){
       controller.events = response.data;
 
       // controller.getEvents();
+      // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
-      // console.log('error');
-      // console.log(error);
+      //console.log('error');
+      //console.log(error);
     });
   },
 
@@ -138,7 +142,16 @@ app.controller('mainController', ['$http', function($http){
     this.loggedIn = false;
     this.initialProfileUpdate = false;
     this.user = "";
+    this.showRegForm = false;
+    this.showLogForm = false;
 
+    this.handleRegForm = function(){
+      this.showRegForm = !this.showRegForm;
+    },
+
+    this.handleLogForm = function(){
+      this.showLogForm = !this.showLogForm;
+    },
 
     this.getUsers = function(){
       $http({
@@ -229,7 +242,7 @@ app.controller('mainController', ['$http', function($http){
           password: this.password
         }
       }).then(function(response){
-        console.log(response);
+        console.log('log-in successful', response);
 
           if(response.data === true){
             //empties form upon successful login

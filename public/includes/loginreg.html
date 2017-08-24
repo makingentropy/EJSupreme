@@ -1,9 +1,4 @@
-<div ng-controller="userController as uctrl"> <!---Using userController--->
-
-<button ng-click="uctrl.getUsers()">GET USERS</button>
-
 <div ng-if="uctrl.loggedIn"> <!---If user is logged in--->
-
 
   <button ng-click="uctrl.logoutUser()">
     Log Out
@@ -65,5 +60,3 @@
   </div>
 
 </div> <!---Closes !uctrl.loggedIn--->
-
-</div> <!---Stop uctrl--->

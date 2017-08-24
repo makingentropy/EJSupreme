@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!---glyphicon here--->
+      <a class="navbar-brand" href="/">choiceVIP</a>
+    </div>
+
+      <ul class="nav navbar-nav">
+        <li ng-if="uctrl.loggedIn"><a href="#">Profile</a></li>
+        <li><a href="#">About</a></li>
+        <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleLogForm()"><a href="#">Login</a></li>
+        <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleRegForm()"><a href="#">Register</a></li>
+        <li ng-if="uctrl.loggedIn" ng-click="uctrl.logoutUser()"><a href="#">Log Out</a></li>
+      </ul>
+
+
+    <!---Registration Form--->
+    <div ng-if="uctrl.showRegForm && !uctrl.loggedIn">
+      <form ng-submit="uctrl.postUser()" class="form-inline">
+        <div class="form-group">
+          <input ng-model="uctrl.regEmail" class="form-control" type="text" placeholder="email">
+        </div>
+        <div class="form-group">
+          <input ng-model="uctrl.regPassword" class="form-control" type="password" placeholder="password">
+        </div>
+          <input type="submit" value="register">
+      </form>
+    </div>
+
+    <!---Log-in Form--->
+    <div ng-if="!uctrl.showLogForm && !uctrl.loggedIn">
+      <form ng-submit="uctrl.loginUser()" class="form-inline">
+        <div class="form-group">
+          <input ng-model="uctrl.email" class="form-control" type="text" placeholder="email">
+        </div>
+        <div class="form-group">
+          <input ng-model="uctrl.password" class="form-control" type="password" placeholder="password">
+        </div>
+          <input type="submit" value="login">
+      </form>
+    </div>
+
+  </div>
+</nav>
