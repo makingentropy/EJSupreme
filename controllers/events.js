@@ -9,7 +9,7 @@ router.get('/', (req, res)=>{
 });
 
 router.post('/', (req, res)=>{
-    console.log(req.body);
+    // console.log("session,event.js, ln 12: ",req.session);
     Events.create(req.body, (err, createdEvent)=>{
       res.json(createdEvent);
     });
