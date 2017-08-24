@@ -11,3 +11,18 @@ ul {
 form > input {
   text-align: center;
 }
+#Q_saved_questions_container{
+
+}
+#Q_saved_questions{
+
+}
+#Q_compose_questions_container{
+
+}
+#Q_compose_questions{
+
+}
+.Q_TextField{
+  width:30em;
+}

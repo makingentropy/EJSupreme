@@ -28,8 +28,8 @@ app.controller('mainController', ['$http', function($http){
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
-      console.log('error');
-      console.log('why');
+      // console.log('error');
+      // console.log(error);
     });
   },
 
