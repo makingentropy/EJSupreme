@@ -26,12 +26,13 @@ const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 
 //Mongoose connection
-mongoose.connect('mongodb://localhost:27017/plannercrud');
+var mongoUri=process.env.MONGODB_URI || 'mongodb://localhost:27017/plannercrud';
+mongoose.connect(mongoUri);
 mongoose.connection.once('open', ()=>{
   console.log('connected to mongo');
 });
 
 //listening
 app.listen(port, ()=>{
-  console.log('listening');
+  console.log('listening on port '+port);
 });
