@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Event = require('./events.js');
 
 const usersSchema = mongoose.Schema({
   email: String,
@@ -13,7 +14,7 @@ const usersSchema = mongoose.Schema({
   imagelink: String,
   interests: Array,
   eventsAttending: Array,
-  eventsOrganizing: Array
+  eventsOrganizing: Array,
 });
 
 const Users = mongoose.model('User', usersSchema);

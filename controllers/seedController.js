@@ -18,7 +18,6 @@ var neweventsinfo=[
   zip: 90042,
   address: "Nova",
   interestTags:["cars"],
-
   attendeeEmails: ["name2@name.com, name@name.com"],
   vettingQuestions:[]
 }];
