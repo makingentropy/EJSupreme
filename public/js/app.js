@@ -9,6 +9,11 @@ app.controller('mainController', ['$http', function($http){
   this.showDiv = false;
   this.Questions={};
 
+  //-------------------QUESTIONS:
+
+
+  //----//-------------/end questions
+
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
   },
