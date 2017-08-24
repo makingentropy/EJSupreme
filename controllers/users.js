@@ -90,7 +90,7 @@ router.get('/logout', (req, res)=>{
 //USER: View a profile
 router.get('/:id', (req, res)=>{
   Users.find({_id: req.params.id}, function(err, foundUser){
-    res.json(foundUser)
+    res.json(foundUser);
   });
 });
 
