@@ -41,6 +41,7 @@ router.post('/login', (req, res)=>{
         // req.session.email = req.body.email;
         req.session.email = user.email;
         req.session.logged = true;
+        req.session.interests = user.interests;
         res.json(req.session.logged);
       } else {
         req.session.message = 'Username or password are incorrect1';

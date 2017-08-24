@@ -24,6 +24,7 @@ var neweventsinfo=[
 
 var newusersinfo=[
   {email: "name@name.com",
+  password: '1',
   name: "Papi",
   age: 37,
   phone: 0,
@@ -37,6 +38,7 @@ var newusersinfo=[
   eventsOrganizing: []},
 
   {email: "name2@name.com",
+  password: '1',
   name: "Mami",
   age: 37,
   phone: 0,
