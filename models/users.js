@@ -19,7 +19,7 @@ const usersSchema = mongoose.Schema({
   city: String,
   zip: Number,
   imagelink: String,
-  interests: Array,
+  interests: [String],
   eventsAttending: Array,
   eventsOrganizing: Array,
 });
