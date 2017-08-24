@@ -9,9 +9,10 @@ router.get('/', (req, res)=>{
 });
 
 router.post('/', (req, res)=>{
-  Events.create(req.body, (err, createdEvent)=>{
-    res.json(createdEvent);
-  });
+    // console.log("session,event.js, ln 12: ",req.session);
+    Events.create(req.body, (err, createdEvent)=>{
+      res.json(createdEvent);
+    });
 });
 
 router.delete('/:id', (req, res)=>{

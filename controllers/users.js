@@ -21,7 +21,8 @@ router.post('/register', (req, res, next)=>{
   userDbEntry.password = passwordHash;
   Users.create(userDbEntry, (err, user) => {
     req.session.james = user._id;
-    req.session.email = userDbEntry.email;
+    req.session.email = user.email;
+    req.session.logged = true;
     if(err){
       res.send(err);
     } else {
@@ -73,8 +74,11 @@ router.put('/:id', (req, res)=>{
 //ADMIN MODERATOR: Log out of your account
 //USER: Log out of your account
 router.get('/logout', (req, res)=>{
+  console.log("session, pre-destroy: ",req.session);
   req.session.destroy(function(err){
+    console.log("session, post-destroy: ",req.session);
     req.session = false;
+    console.log("session, post false: ",req.session);
     console.log('Logged out');
     res.json(req.session);
   });
