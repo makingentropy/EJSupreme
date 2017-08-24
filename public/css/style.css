@@ -1,0 +1,13 @@
+html {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+form > input {
+  text-align: center;
+}
