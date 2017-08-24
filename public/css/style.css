@@ -1,7 +1,6 @@
-html {
-  text-align: center;
+/*html {
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 ul {
@@ -10,4 +9,18 @@ ul {
 
 form > input {
   text-align: center;
+}
+
+.container-fluid {
+  display:flex;
+}*/
+html {
+  margin: 0 auto;
+}
+form > input {
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
 }

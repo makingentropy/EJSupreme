@@ -3,14 +3,14 @@ const router = express.Router();
 const Events = require('../models/events.js');
 
 router.get('/', (req, res)=>{
-  console.log('get route has initiated');
-  console.log('this is req.session.interests', req.session.interests);
+  // console.log('get route has initiated');
+  // console.log('this is req.session.interests', req.session.interests);
   for(let i = 0; i <= req.session.interests.length-1; i++){
-    console.log('for loop has begun');
+    // console.log('for loop has begun');
     Events.find({'interestTags': req.session.interests[i]}).exec(function(err, foundEvents){
-      console.log('finding event...');
+      // console.log('finding event...');
     if(err){
-      console.log(err);
+      // console.log(err);
       res.send(err);
     } else {
       res.json(foundEvents);
