@@ -24,6 +24,7 @@ router.delete('/:id', (req, res)=>{
 router.put('/:id', (req, res)=>{
   console.log(req.body);
   Events.findById(req.params.id, req.body, {new:true}, (err, updatedEvent)=>{
+    if(updatedEvent.ownerEmail === req.session.user)
     updatedEvent.interestTags.push(req.body.interestTags);
     Events.findByIdAndUpdate(req.params.id, updatedEvent, (err, updated)=>{
       res.json(updatedEvent);
