@@ -19,18 +19,16 @@ form > input {
   margin: 0 auto;
   text-align: center;
 }*/
-html{
+/*html{
   max-height: 100%;
   width: 100%;
+}*/
+body{
+  height: 100%;
 }
 form > input {
   text-align: center;
 }
-form{
-  height: 90%;
-  width: 100%;
-}
-
 ul{
   list-style: none;
 }
@@ -39,6 +37,10 @@ ul{
   padding: 5px;
   text-align: center;
   background-color: rgba(107, 150, 200, .85);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
 }
 .centerFormDiv{
   margin: 0 auto;
