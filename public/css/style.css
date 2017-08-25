@@ -14,8 +14,10 @@ form > input {
 .container-fluid {
   display:flex;
 }*/
+
 html {
   margin: 0 auto;
+  text-align: center;
 }
 form > input {
   text-align: center;
@@ -23,6 +25,9 @@ form > input {
 
 form {
   margin: 0 auto;
+}
+ul{
+  list-style: none;
 }
 #Q_saved_questions_container{
 

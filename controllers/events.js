@@ -3,59 +3,23 @@ const router = express.Router();
 const Events = require('../models/events.js');
 
 router.get('/', (req, res)=>{
-
   // console.log('get route has initiated');
   // console.log('this is req.session.interests', req.session.interests);
-  for(let i = 0; i <= req.session.interests.length-1; i++){
-    // console.log('for loop has begun');
-    Events.find({'interestTags': req.session.interests[i]}).exec(function(err, foundEvents){
-      // console.log('finding event...');
-    if(err){
-      // console.log(err);
-      res.send(err);
-    } else {
-      res.json(foundEvents);
-    }
-  });
-  } //closing for loop
+  if(req.session.logged==true){
+    for(let i = 0; i <= req.session.interests.length-1; i++){
+      console.log('for loop has begun');
+      Events.find({'interestTags': req.session.interests[i]}).exec(function(err, foundEvents){
+        console.log('finding event...');
+      if(err){
+        // console.log(err);
+        res.send(err);
+      } else {
+        res.json(foundEvents);
+      }
+    });
+    } //closing for loop
+  }
 });
-// router.get('/', (req, res)=>{
-//   let allMatchingEvents=[];
-//   console.log("B4 if, req.session.logged: ",req.session.logged);
-//   console.log("req.session: ",req.session);
-//   if(req.session.logged){
-//     console.log("req.session.logged: ",req.session.logged);
-//     Events.find({}, (err, foundEvents)=>{ //puills all events from db
-// //   //     for(let i=0; i<=foundEvents.length-1; i++){//cycles through events
-// //   //       for(let j=0; j<=req.session.interests.length-1; j++){
-// //   //         for(let n=0; n<=foundEvents.interestTags.length-1; n++){
-// //   //           console.log("foundEvents.length: ",foundEvents.length," "+
-// //   //           "req.session.interests[j]: ",req.session.interests[j]," "+
-// //   //           "foundEvents.interestTags[n]: ",foundEvents.interestTags[n]);
-// //   //           if(req.session.interests[j]==foundEvents.interestTags[n]){
-// //   //             allMatchingEvents.push(foundEvents[i]);
-// //   //             i++; //break loop, go to next event
-// //   //           }
-// //   //         }
-// //   //       }
-// //   //     }
-// //   //     // DISPLAY allMatchingEvents here
-// //   //     res.json(allMatchingEvents);
-// //   //   });
-// //   // }else{
-// //   //   console.log("Can't display events/interestTags until logged in");
-//
-//     res.json(foundEvents);  //testing
-//   }); //testing
-// }
-// });
-
-// router.get('/', (req, res)=>{
-//   Events.find({}, (err, foundEvents)=>{
-//     res.json(foundEvents);
-//   });
-// });
-
 
 router.post('/', (req, res)=>{
     // console.log("session,event.js, ln 12: ",req.session);
@@ -86,6 +50,12 @@ router.put('/:id', (req, res)=>{
     }else{
       console.log("err: ",err);
     }
+  });
+});
+
+router.get('/:id', (req, res)=>{
+  Events.find({_id: req.params.id}, function(err, foundEvent){
+    res.json(foundEvent);
   });
 });
 

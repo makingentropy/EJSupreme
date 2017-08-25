@@ -24,6 +24,7 @@ router.post('/register', (req, res, next)=>{
     req.session.email = user.email;
     req.session.logged = true;
     req.session.interests = user.interests;
+    console.log('#####!!!!!!####', req.session);
     if(err){
       res.send(err);
     } else {
@@ -65,6 +66,7 @@ router.delete('/:id', (req, res)=>{
 //USER: Update information on initialProfileUpdate & Edits
 router.put('/:id', (req, res)=>{
   Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, user)=>{
+    req.session.interests = user.interests;
     if(err){
       res.send(err);
     } else {
@@ -90,7 +92,7 @@ router.get('/logout', (req, res)=>{
 //USER: View a profile
 router.get('/:id', (req, res)=>{
   Users.find({_id: req.params.id}, function(err, foundUser){
-    res.json(foundUser)
+    res.json(foundUser);
   });
 });
 

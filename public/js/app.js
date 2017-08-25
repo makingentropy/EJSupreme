@@ -5,16 +5,35 @@ const app = angular.module("MyApp",[]);
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
+  this.indexCreateForm = false;
   this.hideDiv = true;
   this.showDiv = false;
-
   this.events = "";
-
+  this.event = "";
   this.Questions={};
+
+  this.handleCreate = function(){
+    this.indexCreateForm = !this.indexCreateForm;
+  },
 
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
   },
+
+  this.profileEventToggle = function(){
+    this.showDiv = !this.showDiv
+  },
+
+  // this.showEvent = function(event){
+  //   $http({
+  //     method: 'GET',
+  //     url: '/events/' + event._id
+  //   }).then(function(response){
+  //     controller.event = response.data;
+  //   }, function(error){
+  //     console.log('error');
+  //   });
+  // },
 
   this.getEvents = function(){
     $http({
@@ -27,8 +46,6 @@ app.controller('mainController', ['$http', function($http){
       //else
       //don't show the shit
       controller.events = response.data;
-
-      // controller.getEvents();
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
@@ -126,7 +143,7 @@ app.controller('mainController', ['$http', function($http){
     }, function(error){
       console.log('error');
     });
-  }
+  },
   this.getEvents();
 }]);
 //--------------------------->
@@ -175,6 +192,7 @@ app.controller('mainController', ['$http', function($http){
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
         controller.user = response.data;
+        console.log(response.data);
         // console.log('this is the res.data.cookie...', response.data.email);
         //redirect to edit your profile
       }, function(error){
@@ -212,6 +230,8 @@ app.controller('mainController', ['$http', function($http){
         controller.updatedImageLink = "";
         controller.updatedInterests = "";
         controller.initialProfileUpdate = false;
+        console.log('THIS IS IPU', controller.initialProfileUpdate);
+        console.log('THIS IS LOGGEDIN', controller.loggedIn);
       }, function(error){
         console.log('error');
       });
@@ -244,6 +264,7 @@ app.controller('mainController', ['$http', function($http){
             controller.email = "";
             controller.password = "";
             controller.loggedIn = response.data;
+            console.log('RESPONSE DATA HERE', response.data);
             // console.log('this is response.data', response.data);
           } else {
             console.log("couldn't log in");
