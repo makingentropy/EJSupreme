@@ -1,12 +1,14 @@
 <div ng-if="uctrl.loggedIn && !uctrl.initialProfileUpdate">
 
   <div ng-controller="mainController as mctrl" class="container">
-    <button ng-click="mctrl.getEvents()">Refresh Feed</button>
+    <!-- <button ng-click="mctrl.getEvents()">Refresh Feed</button> -->
     <!-- <div class="row"> -->
-      <div ng-repeat="event in mctrl.events track by $index" class="jumbotron">
-        <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3>
+      <div ng-repeat="event in mctrl.events track by $index" class="jumbotron" ng-mouseenter="hoverState = true" ng-mouseleave="hoverState = false">
+        <!-- <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3> -->
+        <h3 class="display-4">{{event.title}}</h3>
         <div class="lead">organized by {{event.ownerEmail}}</div>
-        <div ng-if="mctrl.showDiv">
+        <!-- <div ng-if="mctrl.showDiv"> -->
+        <div ng-if="hoverState">
           <div class="my-4">
             <div>DESCRIPTION: {{event.description}}</div>
             <div>DATE: {{event.date | date: 'fullDate'}}</div>
@@ -24,7 +26,7 @@
       </div>
     </div>
 
-  <button ng-click="mctrl.handleCreate()">Create Event</button>
+  <div class="text-center"><button ng-click="mctrl.handleCreate()" class="btn btn-primary btn-sx" type="button">Create Event</button></div>
     <div ng-if="mctrl.indexCreateForm">
       <form ng-submit="mctrl.postEvent()">
           <br/>
@@ -54,14 +56,7 @@
           <br/>
         <input type="text" ng-model="mctrl.interestTags" placeholder="Interest Tags"/>
           <br/>
-          <!--Questions composition section -->
-        <div class="nav" ng-include="'includes/questions.html'"></div>
-
         <input type="submit" value="Create New Event">
-
-
-
-
       </form>
     </div>
 

@@ -1,18 +1,30 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-static-top navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle Nav</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">choiceVIP</a>
       <!---glyphicon here--->
-      <a class="navbar-brand" href="/">choiceVIP</a>
     </div>
-
+    <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <!-- <li ng-if="uctrl.loggedIn"><a href="#">Profile</a></li> -->
         <li><a href="#">About</a></li>
         <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleLogForm()"><a href="#">Login</a></li>
         <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleRegForm()"><a href="#">Register</a></li>
         <li ng-if="uctrl.loggedIn" ng-click="uctrl.logoutUser()"><a href="#">Log Out</a></li>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">About</a></li>
+            <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleLogForm()"><a href="#">Login</a></li>
+            <li ng-if="!uctrl.loggedIn" ng-click="uctrl.handleRegForm()"><a href="#">Register</a></li>
+            <li ng-if="uctrl.loggedIn" ng-click="uctrl.logoutUser()"><a href="#">Log Out</a></li>
+          </ul>
+        </li>
       </ul>
-
 
     <!---Registration Form--->
     <div ng-if="uctrl.showRegForm && !uctrl.loggedIn">
