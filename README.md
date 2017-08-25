@@ -3,7 +3,7 @@
 Day 1:
 ---
 ### Flowchart of MVP design
-![ScreenShot](/Project 3 Diagram.png)
+![ScreenShot](/Project 3 Diagram.jpg)
 
 -LIVE SITE ON
 -Trello project set up.
