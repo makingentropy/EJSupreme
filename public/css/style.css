@@ -26,10 +26,11 @@ html{
 form > input {
   text-align: center;
 }
-
-form {
-  margin: 0 auto;
+form{
+  height: 90%;
+  width: 100%;
 }
+
 ul{
   list-style: none;
 }
@@ -39,8 +40,9 @@ ul{
   text-align: center;
   background-color: rgba(107, 150, 200, .85);
 }
-.jumbotron {
-  transition: transform 0.5s;
+.centerFormDiv{
+  margin: 0 auto;
+  width: 24%;
 }
 #Q_saved_questions_container{
 
