@@ -19,16 +19,15 @@ form > input {
   margin: 0 auto;
   text-align: center;
 }*/
-html{
+/*html{
   max-height: 100%;
   width: 100%;
+}*/
+body{
+  height: 100%;
 }
 form > input {
   text-align: center;
-}
-
-form {
-  margin: 0 auto;
 }
 ul{
   list-style: none;
@@ -38,9 +37,14 @@ ul{
   padding: 5px;
   text-align: center;
   background-color: rgba(107, 150, 200, .85);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
 }
-.jumbotron {
-  transition: transform 0.5s;
+.centerFormDiv{
+  margin: 0 auto;
+  width: 24%;
 }
 .jumbofriend{
   margin-top: 1em;
