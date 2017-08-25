@@ -24,16 +24,16 @@ app.controller('mainController', ['$http', function($http){
     this.showDiv = !this.showDiv
   },
 
-  this.showEvent = function(event){
-    $http({
-      method: 'GET',
-      url: '/events/' + event._id
-    }).then(function(response){
-      controller.event = response.data;
-    }, function(error){
-      console.log('error');
-    });
-  },
+  // this.showEvent = function(event){
+  //   $http({
+  //     method: 'GET',
+  //     url: '/events/' + event._id
+  //   }).then(function(response){
+  //     controller.event = response.data;
+  //   }, function(error){
+  //     console.log('error');
+  //   });
+  // },
 
   this.getEvents = function(){
     $http({
@@ -46,8 +46,6 @@ app.controller('mainController', ['$http', function($http){
       //else
       //don't show the shit
       controller.events = response.data;
-
-      // controller.getEvents();
       // controller.getEvents();
       // console.log('this is controller.events', controller.events);
     }, function(error){
@@ -145,7 +143,7 @@ app.controller('mainController', ['$http', function($http){
     }, function(error){
       console.log('error');
     });
-  }
+  },
   this.getEvents();
 }]);
 //--------------------------->
@@ -158,7 +156,6 @@ app.controller('mainController', ['$http', function($http){
     this.user = "";
     this.showRegForm = false;
     this.showLogForm = false;
-    this.userProfile = false;
 
     this.handleRegForm = function(){
       this.showRegForm = !this.showRegForm;
@@ -166,10 +163,6 @@ app.controller('mainController', ['$http', function($http){
 
     this.handleLogForm = function(){
       this.showLogForm = !this.showLogForm;
-    },
-
-    this.handleUserProfile = function(){
-      this.userProfile = !this.userProfile;
     },
 
     this.getUsers = function(){
@@ -199,6 +192,7 @@ app.controller('mainController', ['$http', function($http){
         controller.loggedIn = true;
         controller.initialProfileUpdate = true;
         controller.user = response.data;
+        console.log(response.data);
         // console.log('this is the res.data.cookie...', response.data.email);
         //redirect to edit your profile
       }, function(error){
@@ -236,6 +230,8 @@ app.controller('mainController', ['$http', function($http){
         controller.updatedImageLink = "";
         controller.updatedInterests = "";
         controller.initialProfileUpdate = false;
+        console.log('THIS IS IPU', controller.initialProfileUpdate);
+        console.log('THIS IS LOGGEDIN', controller.loggedIn);
       }, function(error){
         console.log('error');
       });
@@ -268,6 +264,7 @@ app.controller('mainController', ['$http', function($http){
             controller.email = "";
             controller.password = "";
             controller.loggedIn = response.data;
+            console.log('RESPONSE DATA HERE', response.data);
             // console.log('this is response.data', response.data);
           } else {
             console.log("couldn't log in");

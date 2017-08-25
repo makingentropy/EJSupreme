@@ -17,6 +17,7 @@ form > input {
 
 html {
   margin: 0 auto;
+  text-align: center;
 }
 form > input {
   text-align: center;
