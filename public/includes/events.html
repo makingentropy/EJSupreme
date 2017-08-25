@@ -3,8 +3,14 @@
   <div ng-controller="mainController as mctrl" class="container">
     <button ng-click="mctrl.getEvents()">Refresh Feed</button>
     <!-- <div class="row"> -->
+<<<<<<< HEAD
       <div ng-repeat="event in mctrl.events track by $index" class="jumbotron">
         <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3>
+=======
+      <div ng-repeat="event in mctrl.events track by $index" class="jumbotron jumbofriend" ng-mouseenter="hoverState = true" ng-mouseleave="hoverState = false">
+        <!-- <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3> -->
+        <h3 class="display-4">{{event.title}}</h3>
+>>>>>>> 49edab6... slight box shadow behind the jumbotron
         <div class="lead">organized by {{event.ownerEmail}}</div>
         <div ng-if="mctrl.showDiv">
           <div class="eventdetails my-4">

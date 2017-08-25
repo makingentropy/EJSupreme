@@ -29,7 +29,21 @@ form {
 ul{
   list-style: none;
 }
-
+.footer{
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(107, 150, 200, .85);
+}
+.jumbotron {
+  transition: transform 0.5s;
+}
+.jumbofriend{
+  margin-top: 1em;
+  -webkit-box-shadow: 10px 10px 7px -8px rgba(0,0,0,0.24);
+  -moz-box-shadow: 10px 10px 7px -8px rgba(0,0,0,0.24);
+  box-shadow: 10px 10px 7px -8px rgba(0,0,0,0.24);
+}
 #Q_saved_questions_container{
 
 }
