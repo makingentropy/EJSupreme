@@ -9,8 +9,20 @@ app.controller('mainController', ['$http', function($http){
   this.hideDiv = true;
   this.showDiv = false;
   this.events = "";
+
   this.event = "";
-  this.Questions={};
+  
+//-------------------QUESTIONS:
+this.thisQuestion="";
+this.thisCorrectAnswer="";
+this.thisFalseAnswer="";
+this.questionSet=function(){
+  console.log("this.thisQuestion: ",this.thisQuestion);
+  console.log("this.thisCorrectAnswer: ",this.thisCorrectAnswer);
+  console.log("this.thisFalseAnswer: ",this.thisFalseAnswer);
+};
+//----//-------------/end questions
+
 
   this.handleCreate = function(){
     this.indexCreateForm = !this.indexCreateForm;
