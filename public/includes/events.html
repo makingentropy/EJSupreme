@@ -28,8 +28,9 @@
   <div class="text-center">
     <button ng-click="mctrl.handleCreate()" class="btn btn-primary btn-sx" type="button">Create Event</button>
   </div>
-    <div class="text-center" ng-if="mctrl.indexCreateForm">
-      <form ng-submit="mctrl.postEvent()" class="centerFormDiv">
+
+    <div ng-if="mctrl.indexCreateForm" class="text-center">
+      <form ng-submit="mctrl.postEvent()">
           <br/>
         <input type="text" ng-model="mctrl.title" placeholder="Title" />
           <br/>
@@ -56,6 +57,7 @@
         <input type="text" ng-model="mctrl.address" placeholder="Address"/>
           <br/>
         <input type="text" ng-model="mctrl.interestTags" placeholder="Interest Tags"/>
+          <br/>
           <br/>
         <input type="submit" value="Create New Event">
       </form>
