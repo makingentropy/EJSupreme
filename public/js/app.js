@@ -5,13 +5,13 @@ const app = angular.module("MyApp",[]);
 app.controller('mainController', ['$http', function($http){
   const controller = this;
   this.indexEditForm = 1;
+  this.indexCreateForm = false;
   this.hideDiv = true;
   this.showDiv = false;
-
   this.events = "";
 
-
-
+  this.event = "";
+  
 //-------------------QUESTIONS:
 this.thisQuestion="";
 this.thisCorrectAnswer="";
@@ -23,8 +23,28 @@ this.questionSet=function(){
 };
 //----//-------------/end questions
 
+
+  this.handleCreate = function(){
+    this.indexCreateForm = !this.indexCreateForm;
+  },
+
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
+  },
+
+  this.profileEventToggle = function(){
+    this.showDiv = !this.showDiv
+  },
+
+  this.showEvent = function(event){
+    $http({
+      method: 'GET',
+      url: '/events/' + event._id
+    }).then(function(response){
+      controller.event = response.data;
+    }, function(error){
+      console.log('error');
+    });
   },
 
   this.getEvents = function(){
@@ -150,6 +170,7 @@ this.questionSet=function(){
     this.user = "";
     this.showRegForm = false;
     this.showLogForm = false;
+    this.userProfile = false;
 
     this.handleRegForm = function(){
       this.showRegForm = !this.showRegForm;
@@ -157,6 +178,10 @@ this.questionSet=function(){
 
     this.handleLogForm = function(){
       this.showLogForm = !this.showLogForm;
+    },
+
+    this.handleUserProfile = function(){
+      this.userProfile = !this.userProfile;
     },
 
     this.getUsers = function(){

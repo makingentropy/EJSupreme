@@ -4,8 +4,26 @@
 
     <ul>
       <li ng-repeat="event in mctrl.events track by $index">
-        <div ng-click="mctrl.handleClick()">{{event.title}} made by {{event.ownerEmail}}</div>
-        <div ng-hide="mctrl.hideDiv">
+        <h3 ng-click="mctrl.profileEventToggle()">{{event.title}}</h3> <div>organized by {{event.ownerEmail}}</div>
+        <div ng-if="mctrl.showDiv">
+          <div class="eventdetails">
+            <div>DESCRIPTION: {{event.description}}</div>
+            <div>DATE: {{event.date | date: 'fullDate'}}</div>
+            <div> TIME: {{event.time | date: 'mediumTime'}}</div>
+            <div>
+              LOCATION: {{event.address}}
+                <br/>
+              {{event.zip}}   {{event.city}}, {{event.state}}  {{event.country}}
+            </div>
+            <div>COST: {{event.requiredCost}}</div>
+            <button ng-click=""></button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div ng-click="mctrl.handleCreate()">Create Event</div>
+        <!-- <div ng-hide="mctrl.hideDiv">
           <button ng-click="mctrl.deleteEvent(event)">Delete</button>
           <button ng-click="mctrl.indexEditForm = $index">Edit</button>
         </div>
@@ -45,40 +63,43 @@
           <input type="text" ng-model="mctrl.updatedInterestTags" placeholder="New Interest Tags"/>
             <br/>
           <input type="submit" value="submit">
-        </form>
-      </li>
-    </ul>
+        </form> -->
 
-    <form ng-submit="mctrl.postEvent()">
-      Create new Event
-        <br/>
-      <input type="text" ng-model="mctrl.title" placeholder="Title" />
-        <br/>
-      <input type="text" ng-model="mctrl.ownerEmail" placeholder="Email"/>
-        <br/>
-      <input type="text" ng-model="mctrl.date" placeholder="Date"/>
-        <br/>
-      <input type="text" ng-model="mctrl.time" placeholder="Time"/>
-        <br/>
-      <input type="text" ng-model="mctrl.imagelink" placeholder="Image URL"/>
-        <br/>
-      <input type="text" ng-model="mctrl.description" placeholder="Description"/>
-        <br/>
-      <input type="text" ng-model="mctrl.requiredCost" placeholder="Required Cost"/>
-        <br/>
-      <input type="text" ng-model="mctrl.country" placeholder="Country"/>
-        <br/>
-      <input type="text" ng-model="mctrl.state" placeholder="State"/>
-        <br/>
-      <input type="text" ng-model="mctrl.city" placeholder="City"/>
-        <br/>
-      <input type="text" ng-model="mctrl.zip" placeholder="Zip"/>
-        <br/>
-      <input type="text" ng-model="mctrl.address" placeholder="Address"/>
-        <br/>
-      <input type="text" ng-model="mctrl.interestTags" placeholder="Interest Tags"/>
-        <br/>
-      <input type="submit" value="Create New Event">
-    </form>
+    <div ng-if="mctrl.indexCreateForm">
+      <form ng-submit="mctrl.postEvent()">
+          <br/>
+        <input type="text" ng-model="mctrl.title" placeholder="Title" />
+          <br/>
+        <input type="text" ng-model="mctrl.ownerEmail" placeholder="Email"/>
+          <br/>
+        <input type="text" ng-model="mctrl.date" placeholder="Date"/>
+          <br/>
+        <input type="text" ng-model="mctrl.time" placeholder="Time"/>
+          <br/>
+        <input type="text" ng-model="mctrl.imagelink" placeholder="Image URL"/>
+          <br/>
+        <input type="text" ng-model="mctrl.description" placeholder="Description"/>
+          <br/>
+        <input type="text" ng-model="mctrl.requiredCost" placeholder="Required Cost"/>
+          <br/>
+        <input type="text" ng-model="mctrl.country" placeholder="Country"/>
+          <br/>
+        <input type="text" ng-model="mctrl.state" placeholder="State"/>
+          <br/>
+        <input type="text" ng-model="mctrl.city" placeholder="City"/>
+          <br/>
+        <input type="text" ng-model="mctrl.zip" placeholder="Zip"/>
+          <br/>
+        <input type="text" ng-model="mctrl.address" placeholder="Address"/>
+          <br/>
+        <input type="text" ng-model="mctrl.interestTags" placeholder="Interest Tags"/>
+          <br/>
+        <input type="submit" value="Create New Event">
+      </form>
+    </div>
+
+  <!--End controller-->
   </div>
+
+<!---End ng-if--->
 </div>
