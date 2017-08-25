@@ -21,9 +21,22 @@ app.controller('mainController', ['$http', function($http){
   },
 
   this.profileEventToggle = function(){
-    this.showDiv = !this.showDiv
+    this.showDiv = !this.showDiv;
   },
 
+  this.addUserToAttendeeList = function(){
+    $http({
+      method: 'PUT',
+      url: '/events/add/' + event._id,
+      data: {
+        attendeeEmails: this.email
+      }
+    }).then(function(response){
+      console.log('HELLOOOOO THIS IS THE RESPONSE', response);
+    }, function(error){
+      console.log('ERROR AT NEW FUNCTION', error);
+    })
+  },
   // this.showEvent = function(event){
   //   $http({
   //     method: 'GET',

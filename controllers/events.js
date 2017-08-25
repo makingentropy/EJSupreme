@@ -28,6 +28,17 @@ router.post('/', (req, res)=>{
     });
 });
 
+//handling im going button
+router.put('/add/:id', (req, res)=>{
+  console.log('im working here');
+  Events.findByIdAndUpdate(req.params.id, (err, updatedEvent)=>{
+    console.log('im working too', updatedEvent);
+    updatedEvent.attendeeEmails.push(req.session.email);
+    res.json(updatedEvent);
+  });
+});
+
+
 router.delete('/:id', (req, res)=>{
   Events.findByIdAndRemove(req.params.id, (err, deletedEvent)=>{
     res.json(deletedEvent);

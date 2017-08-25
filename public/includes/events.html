@@ -1,12 +1,13 @@
 <div ng-if="uctrl.loggedIn && !uctrl.initialProfileUpdate">
 
-  <div ng-controller="mainController as mctrl">
+  <div ng-controller="mainController as mctrl" class="container">
     <button ng-click="mctrl.getEvents()">Refresh Feed</button>
-    <ul>
-      <li ng-repeat="event in mctrl.events track by $index">
-        <h3 ng-click="mctrl.profileEventToggle()">{{event.title}}</h3> <div>organized by {{event.ownerEmail}}</div>
+    <!-- <div class="row"> -->
+      <div ng-repeat="event in mctrl.events track by $index" class="jumbotron">
+        <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3>
+        <div class="lead">organized by {{event.ownerEmail}}</div>
         <div ng-if="mctrl.showDiv">
-          <div class="eventdetails">
+          <div class="eventdetails my-4">
             <div>DESCRIPTION: {{event.description}}</div>
             <div>DATE: {{event.date | date: 'fullDate'}}</div>
             <div> TIME: {{event.time | date: 'mediumTime'}}</div>
@@ -16,11 +17,12 @@
               {{event.zip}}   {{event.city}}, {{event.state}}  {{event.country}}
             </div>
             <div>COST: {{event.requiredCost}}</div>
-            <button ng-click=""></button>
+            <a class="btn btn-primary btn-lg" ng-click="mctrl.addUserToAttendeeList()" role="button">I'm Going</a>
+
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
 
   <button ng-click="mctrl.handleCreate()">Create Event</button>
     <div ng-if="mctrl.indexCreateForm">

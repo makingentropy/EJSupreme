@@ -15,10 +15,10 @@ form > input {
   display:flex;
 }*/
 
-html {
+/*html {
   margin: 0 auto;
   text-align: center;
-}
+}*/
 form > input {
   text-align: center;
 }
@@ -29,6 +29,7 @@ form {
 ul{
   list-style: none;
 }
+
 #Q_saved_questions_container{
 
 }

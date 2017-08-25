@@ -47,9 +47,25 @@ var newusersinfo=[
   city: "los Angeles",
   zip: 90007,
   imagelink: "http://images1.americanlisted.com/nlarge/1972-chevrolet-nova-americanlisted_66331191.jpg",
-  interests: ["Adult Swim","astronomy"],
+  interests: ["cars","astronomy"],
   eventsAttending: [],
-  eventsOrganizing: []}];
+  eventsOrganizing: []
+  },
+  {email: "name@name.com",
+  password: '1',
+  name: "Papi",
+  age: 37,
+  phone: 0,
+  country: "USA",
+  state: "California",
+  city: "los Angeles",
+  zip: 90042,
+  imagelink: "https://dxsdcl7y7vn9x.cloudfront.net/464152/7FA82EBF-D8D7-433B-A175-CB6F55D10AEA_1.jpg",
+  interests: ["Adult Swim","dragons"],
+  eventsAttending: [],
+  eventsOrganizing: []},
+
+];
 
 router.get('/', ( req, res) => {
 
