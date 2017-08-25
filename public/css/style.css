@@ -26,8 +26,9 @@ form > input {
 body{
   height: 100%;
 }
-form > input {
+form input{
   text-align: center;
+  padding: 3px;
 }
 ul{
   list-style: none;
@@ -40,12 +41,14 @@ ul{
   position: fixed;
   bottom: 0;
   width: 100%;
-
 }
-.centerFormDiv{
+.centerFormDiv input {
+  padding: 5px;
+  text-align: center;
+}
+/*.centerFormDiv + input{
   margin: 0 auto;
-  width: 24%;
-}
+}*/
 #Q_saved_questions_container{
 
 }
