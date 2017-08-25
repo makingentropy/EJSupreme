@@ -7,7 +7,7 @@
         <h3 ng-click="mctrl.profileEventToggle()" class="display-4">{{event.title}}</h3>
         <div class="lead">organized by {{event.ownerEmail}}</div>
         <div ng-if="mctrl.showDiv">
-          <div class="eventdetails my-4">
+          <div class="my-4">
             <div>DESCRIPTION: {{event.description}}</div>
             <div>DATE: {{event.date | date: 'fullDate'}}</div>
             <div> TIME: {{event.time | date: 'mediumTime'}}</div>
