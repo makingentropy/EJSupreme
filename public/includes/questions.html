@@ -11,11 +11,12 @@
   <div id="Q_compose_questions_container">
     <div>Compose new question to validate entry:</div>
     <div id="Q_compose_questions">
-      <form class="" action="index.html" > <!--//ng-submit=""-->
-        <input class="Q_TextField" type="text" placeholder="Question?"><br> <!--ng-model=""-->
-        <input class="Q_TextField" type="text" placeholder="Correct Answer"><br>
-        <input class="Q_TextField" type="text" placeholder="Incorrect Answer"><br>
+      <form class="" ng-submit="mctrl.questionSet()" > <!--//ng-submit=""-->
+        <input class="Q_TextField" ng-model="thisQuestion" type="text" placeholder="Question?"><br> <!--ng-model=""-->
+        <input class="Q_TextField" ng-model="thisCorrectAnswer" type="text" placeholder="Correct Answer"><br>
+        <input class="Q_TextField" ng-model="thisFalseAnswer" type="text" placeholder="Incorrect Answer"><br>
         <button type="button" name="button">+ new incorrect Answer</button>
+        <input type="submit" value="submit"/>
       </form>
     </div>
   </div>

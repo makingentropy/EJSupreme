@@ -10,12 +10,18 @@ app.controller('mainController', ['$http', function($http){
 
   this.events = "";
 
-  this.Questions={};
-
-  //-------------------QUESTIONS:
 
 
-  //----//-------------/end questions
+//-------------------QUESTIONS:
+this.thisQuestion="";
+this.thisCorrectAnswer="";
+this.thisFalseAnswer="";
+this.questionSet=function(){
+  console.log("this.thisQuestion: ",this.thisQuestion);
+  console.log("this.thisCorrectAnswer: ",this.thisCorrectAnswer);
+  console.log("this.thisFalseAnswer: ",this.thisFalseAnswer);
+};
+//----//-------------/end questions
 
   this.handleClick = function(){
     this.hideDiv = !this.hideDiv;
